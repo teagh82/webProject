@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>>Welcome to OneDays</title>
+<link href="css/mainstyles.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<!-- 상단  -->
+	<header>
+		<h1>
+			<a href="main.html" style="color: #8EBCBB"
+				style="text-decoration:none">One Days</a>
+		</h1>
+		<div class="navbar">
+			<div class="search">
+				<input type="text" placeholder="검색어를 입력해주세요.">
+				<button>검색</button>
+
+			</div>
+			<div class="dropdown">
+				<ul>
+					<li>알림</li>
+					<li><a href="login.html" style="color: #8EBCBB"
+						style="text-decoration:none">로그인</a>
+						<ul>
+							<li><a href="#">마이페이지</a>
+							<li><a href="#">로그아웃</a>
+						</ul></li>
+				</ul>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+
+
+	</header>
+	<!-- 메뉴  -->
+	<input type="checkbox" id="menuicon">
+	<label for="menuicon"> <span></span> <span></span> <span></span>
+	</label>
+	<div class="sidebar">
+		<h1 class="category">카테고리</h1>
+		<hr>
+		<ul class="item">
+			<li><a href="dlyCat.html">공예</a></li>
+			<li><a href="cookCat.html">요리</a></li>
+			<li><a href="instrumentCat.html">악기</a></li>
+			<li><a href="itCat.html">IT</a></li>
+			<li><a href="activityCat.html">액티비티</a></li>
+		</ul>
+
+	</div>
+    <br>
+    
+
+    <!-- 슬라이드-->
+    <div class="section">
+        <input type="radio" name="slide" id="slide01" checked>
+        <input type="radio" name="slide" id="slide02">
+        <input type="radio" name="slide" id="slide03">
+        <div class="slidewrap">
+            
+            <ul class="slidelist">
+                <!-- 슬라이드 영역 -->
+                <li class="slideitem">
+                    <a>
+                        <div class="textbox">
+                            <h3>첫번째 슬라이드</h3>
+                            <p>첫번째 슬라이드 입니다.</p>
+                        </div>
+                        <img src="./slidebanner/banner.png">
+                    </a>
+                </li>
+                <li class="slideitem">
+                    <a>
+                        
+                        <div class="textbox">
+                            <h3>두번째 슬라이드</h3>
+                            <p>두번째 슬라이드 입니다.</p>
+                        </div>
+                        <img src="./slidebanner/slide.jpg">
+                    </a>
+                </li>
+                <li class="slideitem">
+                    <a>
+                        
+                        <div class="textbox">
+                            <h3>세번째 슬라이드</h3>
+                            <p>세번째 슬라이드 입니다.</p>
+                        </div>
+                        <img src="./slidebanner/slide.jpg">
+                    </a>
+                </li class="slideitem">
+    
+                <!-- 좌,우 슬라이드 버튼 -->
+                <div class="slide-control">
+                    <div>
+                        <label for="slide03" class="left"></label>
+                        <label for="slide02" class="right"></label>
+                    </div>
+                    <div>
+                        <label for="slide01" class="left"></label>
+                        <label for="slide03" class="right"></label>
+                    </div>
+                    <div>
+                        <label for="slide02" class="left"></label>
+                        <label for="slide01" class="right"></label>
+                    </div>
+                </div>
+    
+            </ul>
+            <!-- 페이징 -->
+            <ul class="slide-pagelist">
+                <li><label for="slide01"></label></li>
+                <li><label for="slide02"></label></li>
+                <li><label for="slide03"></label></li>
+            </ul>
+        </div>
+	</div>
+	
+	<!--이상형 클래스-->
+	<div class="ideal_type"><a href="#a">당신의 맞춤형 클래스를 알아보세요!</a></div>
+
+	<!--클래스 목록-->
+	<div class="class_body_padding">
+	<h2 style="margin: 30px; color: #747272;">인기클래스</h2>
+	<ul class="product_list">
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div> 지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+	</ul>
+
+	<div style="clear: both;"></div>
+	<hr style="margin-top: 20px;">
+
+	<h2 style="margin: 30px; color: #747272;">추천클래스</h2>
+	<ul class="product_list">
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+	</ul>
+
+	<div style="clear: both;"></div>
+	<hr style="margin-top: 20px;">
+
+	<h2 style="margin: 30px; color: #747272;">마감임박클래스</h2>
+	<ul class="product_list">
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+		<li>
+			<dl>
+				<dt class="class_name"><a href="#a">[인기폭팔] 왕초보도 할수있는 릴리의 캘리그라피</a></dt>
+				<dd class="class_img"><a href="#a"><img src="classimg/test.jpg" alt=""></a></dd>
+				<dd class="price">₩ 0,000</dd>
+				<dd class="btm">
+					<div>지역이름</div>
+					<div><a href="#a">관심등록</a></div>
+				</dd>
+			</dl>
+		</li>
+	</ul>
+	</div>
+	<div style="clear: both;"></div>
+	
+	<div id="footer">
+		<div class="container">
+			<div class="footer">
+				<ul>
+					<li><a href="#a">사이트 도움말</a></li>
+					<li><a href="#a">사이트 이용약관</a></li>
+					<li><a href="#a">사이트 운영규칙</a></li>
+					<li><a href="#a">사이트 도움말</a></li>
+					<li><a href="#a">사이트 도움말</a></li>
+					<li><a href="#a">사이트 도움말</a></li>
+				</ul>
+				<address>
+					Copyright&copy;Onedays.co.kr All Right Rederved
+				</address>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
