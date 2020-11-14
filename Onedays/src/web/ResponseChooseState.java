@@ -1,4 +1,4 @@
-package com.session.web;
+package web;
 
 import java.io.IOException;
 import java.io.PrintWriter;

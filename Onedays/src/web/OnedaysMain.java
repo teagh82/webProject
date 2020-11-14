@@ -1,7 +1,6 @@
-package com.session.web;
+package web;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.*;
 
 import javax.servlet.RequestDispatcher;
@@ -12,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.session.model.OnedaysExpert;
+import model.OnedaysExpert;
 
 /**
  * Servlet implementation class OnedaysMain
