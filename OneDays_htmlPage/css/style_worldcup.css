@@ -1,0 +1,29 @@
+.logo {
+    display: block;
+    margin: 0px auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.logo_div {
+    border-top: 3px solid #ccc;
+    border-bottom: 3px solid #ccc;
+    min-width: 1500px;
+    width: 100%;
+}
+
+p {
+    float: left;
+}
+
+.round {
+    color: #8EBCBB;
+}
+
+.width {
+    padding-top: 50px;
+}
+
+.width div {
+    margin-left: 10%;
+}
