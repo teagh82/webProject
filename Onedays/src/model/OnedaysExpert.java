@@ -1,4 +1,4 @@
-package com.session.model;
+package model;
 
 import java.util.*;
 
