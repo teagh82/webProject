@@ -61,29 +61,37 @@
     </div>
 
     <!-- 개인정보 수정 -->
-    <div class="mypage_wrap" style="min-width: 1500px;">
-        <h2>개인 정보</h2>
+    <div class="mypage_wrap">
+        <h2 style="color: #8EBCBB; min-width: 1500px;">새로운 클래스 만들기</h2>
         <br />
-        <form method="post" action="#">
+        <form method="post" action="#" style="min-width: 1500px;">
             <div class=mypage_box>
-                <h5>아이디</h5>
+                <h5>클래스 이름</h5>
                 <input type="text" name="mid" />
             </div>
             <div class="mypage_box">
-                <h5>비밀 번호</h5>
-                <input type="password" name="passwd" />
+                <h5>난이도</h5>
+                <input type="text" name="난이도" />
             </div>
             <div class=mypage_box>
-                <h5>이름</h5>
-                <input type="text" name="userName" />
+                <h5>준비물</h5>
+                <input type="text" name="준비물" />
             </div>
             <div class=mypage_box>
-                <h5>전화 번호</h5>
-                <input type="tel" name="phone" />
+                <h5>수강일수</h5>
+                <input type="text" name="수강일수" />
             </div>
             <div class=mypage_box>
-                <h5>이메일</h5>
-                <input type="email" name="email" />
+                <h5>날짜</h5>
+                <input type="date" name="날짜" />
+            </div>
+            <div class=mypage_box>
+                <h5>작가 소개</h5>
+                <input type="text" name="자기 소개" />
+            </div>
+            <div class=mypage_box>
+                <h5>클래스 사진 넣기</h5>
+                <input type="text" name="사진 넣기" />
             </div>
             <div class=region>
                 <h5>지역</h5>
@@ -99,7 +107,7 @@
 				</select>
             </div>
             <div class=btn_box>
-                <input class=btn type="submit" value="수정하기" />
+                <input class=btn type="submit" value="클래스 만들기" />
             </div>
         </form>
 
