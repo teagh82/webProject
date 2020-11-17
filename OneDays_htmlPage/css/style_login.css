@@ -3,45 +3,47 @@
 /*화면  분할*/
 
 div.left {
-	width: 50%;
-	float: left;
-	margin-top:100px;
+    width: 50%;
+    float: left;
+    margin-top: 100px;
 }
 
 div.right {
-	width: 50%;
-	float: left;
+    width: 50%;
+    float: left;
 }
 
 
 /* 로그인 */
-.left h2{
-	color:#303030;
-	margin-left:150px;
-	font-size: 30px;
-	
-}
-.login{
-	margin-left:150px;
-}
-.login_box{
-	width:50%;
-	font-size: 25px;
-	padding:8px 0;
-	margin: 8px 0;
-	border-bottom: 2px solid #8EBCBB;
+
+.left h2 {
+    color: #303030;
+    margin-left: 150px;
+    font-size: 30px;
 }
 
-.login_box input{
-	border: none;
-	outline: none;
-	width:100%;
+.login {
+    margin-left: 150px;
 }
 
-.btn{
-	width:50%;
-	background-color:#8EBCBB;
-	border: 5px solid #8EBCBB;
-	font-size: 18px;
-	color: white;
+.login_box {
+    width: 50%;
+    font-size: 25px;
+    padding: 8px 0;
+    margin: 8px 0;
+    border-bottom: 2px solid #8EBCBB;
+}
+
+.login_box input {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.btn {
+    width: 50%;
+    background-color: #8EBCBB;
+    border: 5px solid #8EBCBB;
+    font-size: 18px;
+    color: white;
 }
