@@ -1,0 +1,26 @@
+.make_class {
+    margin-left: 30px;
+    margin-right: 30px;
+    min-width: 1500px;
+    border-radius: 3em;
+    font-size: 25px;
+    background-color: #c7ebea;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.make_class a {
+    color: #747272;
+}
+
+.make_class a:hover {
+    color: black;
+}
+
+.class_list {
+    padding: 30px;
+    text-align: center;
+    min-width: 1500px;
+    width: 100%;
+}
