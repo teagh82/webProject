@@ -51,6 +51,7 @@ public class DoLogin extends HttpServlet {
 					String checkpw = rs.getString(1);
 					if (checkpw.equals(passwd)) { // valid user and password
 						out.println("Login Success!!");
+			
 					} else { // wrong password
 						System.out.println("Wrong Passwd!!");
 						out.println("<script>alert('비밀번호가 틀렸습니다.'); history.back(); </script>");
