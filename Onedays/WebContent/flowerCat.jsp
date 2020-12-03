@@ -97,9 +97,11 @@
 
     <h2>플라워 클래스</h2>
     <h3 class="cr"> 지역 </h3>
+    <form action="flowerCatR.jsp">
+
     <div class="cat_region">
-        <select name="region">
-        <option value="">지역 선택</option>
+    <select name="region" id="region" onchange="this.form.submit();">
+        <option value="-1" selected>지역 선택</option>
         <option value="1">서울</option>
         <option value="2">경기</option>
         <option value="3">충청도</option>
@@ -107,6 +109,8 @@
         <option value="5">경상도</option>
     </select>
     </div>
+    
+    </form>
 
     <jsp:useBean id="dao" class="model.ClassDAO" />
 	<%
