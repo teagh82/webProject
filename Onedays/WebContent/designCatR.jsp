@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="model.ClassVO"
-	import="java.util.ArrayList"%>
+    pageEncoding="UTF-8" import="model.ClassVO" import="java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="UTF-8">
-    <title>inst</title>
+    <title>Design</title>
     <link href="css/mainstyles.css" rel="stylesheet" type="text/css">
     <link href="css/style_login.css" rel="stylesheet" type="text/css">
     <link href="css/style_cat.css" rel="stylesheet" type="text/css">
@@ -33,14 +32,13 @@
 </head>
 
 <body>
-
     <!-- 상단  -->
     <header>
         <h1>
             <a href="index.jsp" style="color: #8EBCBB">One Days</a>
         </h1>
         <div class="navbar">
-           <div class="search">
+            <div class="search">
 			<form name="serach" method ="post" action="search.jsp">
                 <input type="text" name="keyWord" placeholder="검색어를 입력해주세요.">
 				<input type="submit" value="검색" onclick="searchCheck(form)" />
@@ -49,6 +47,7 @@
             <div class="dropdown">
                 <ul>
                     <li><a href = "javascript:popup()">알림</a></li>
+                    
                     <%
 					if(session.getAttribute("mid") == null) {
 					%>
@@ -92,13 +91,16 @@
             <li><a href="petCat.jsp">반려동물</a></li>
             <li><a href="flowerCat.jsp">플라워</a></li>
         </ul>
+
     </div>
 
-    <h2>악기 클래스</h2>
-	<h3 class="cr">지역</h3>
-	<form action="instCatR.jsp">
 
-    <div class="cat_region">
+    <h2>디자인 클래스</h2>
+    <h3 class="cr"> 지역 </h3>
+    
+    <form action="designCatR.jsp">
+
+    <div class="cat_region"> 
     <select name="region" id="region" onchange="this.form.submit();">
         <option value="-1" selected>지역 선택</option>
         <option value="1">서울</option>
@@ -110,90 +112,76 @@
     </div>
     
     </form>
-
-	<jsp:useBean id="dao" class="model.ClassDAO" />
+    <jsp:useBean id="dao" class="model.ClassDAO" />
 	<%
-		ArrayList<ClassVO> list = dao.getCategorylist(3);
-	%>
+	ArrayList<ClassVO> list = dao.getCategorylist(7,request.getParameter("region"));
+    %>
 
-	<!--클래스 목록-->
-	<table class="pro_body">
+     <!--클래스 목록-->
+	<table class="pro_body" >
 		<%
-			int cnt = 0;
-		for (int i = 0; i <= (list.size() / 4); i++) {
-		%>
+		int cnt = 0;
+    	for(int i = 0; i <= (list.size() / 4); i++){
+    	%>
 		<tr>
 			<%
-				int lim;
-			if (list.size() - cnt <= 4)
+			int lim;
+			if(list.size() - cnt <= 4)
 				lim = list.size() - cnt;
 			else
 				lim = 4;
-
-			for (int j = 0; j < lim; j++) {
-				int idx = (i * 4) + j;
-				ClassVO vo = list.get(idx);
-				cnt++;
-			%>
-			<td style="padding: 10px;">
-				<li class="list"><a
-					href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
-						<img
-						src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
-						alt="" class="img">
-						<h3><%=vo.getName()%>
-							클래스
-						</h3>
-						<p><%=vo.getPrice()%>원
-						</p> <%
- 	switch (vo.getClassRegionIdx()) {
- case 1:
- %>
-						<h4 style="padding: 0 5px 5px;">서울</h4> <%
- 	break;
- 				case 2:
- %>
-						<h4 style="padding: 0 5px 5px;">경기</h4> <%
- 	break;
- 				case 3:
- %>
-						<h4 style="padding: 0 5px 5px;">충청도</h4> <%
- 	break;
- 				case 4:
- %>
-						<h4 style="padding: 0 5px 5px;">전라도</h4> <%
- 	break;
- 				case 5:
- %>
-						<h4 style="padding: 0 5px 5px;">경상도</h4> <%
- 	break;
- 				}
- %>
-
-				</a></li>
+			
+			for(int j = 0; j < lim; j++){
+				int idx = (i*4)+j;
+	    		ClassVO vo = list.get(idx);
+	    		cnt++;
+	    	%>
+			<td style="padding:10px;">
+            		<li class="list">
+                		<a href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
+                  		<img src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>" alt="" class="img">
+                  	 	<h3><%=vo.getName() %> 클래스</h3>
+                   		<p><%=vo.getPrice() %>원</p>
+                   		<%
+                   		switch(vo.getClassRegionIdx()){
+                   		case 1: %>
+                   			<h4 style="padding: 0 5px 5px;">서울</h4>
+                   			<% 
+                   			break;
+                   		case 2:%>
+                   			<h4 style="padding: 0 5px 5px;">경기</h4>
+                   			<%
+                   			break;
+                   		case 3:%>
+                   			<h4 style="padding: 0 5px 5px;">충청도</h4>
+                   			<%
+                   			break;
+                   		case 4:%>
+                   			<h4 style="padding: 0 5px 5px;">전라도</h4>
+                   			<%
+                   			break;
+                   		case 5:%>
+                   			<h4 style="padding: 0 5px 5px;">경상도</h4>
+                   			<%
+                   			break;
+                   		}
+                   		%>
+                   		
+               		 	</a>
+            		</li> 	
 			</td>
-			<%
-				}
-			%>
-		</tr>
 		<%
 			}
-		%>
-	</table>
+     	%>
+     	</tr>
+     	<%
+    	}
+     	%>
+    </table>
 
-	<div style="clear: both;"></div>
-	<br>
-	<br>
-	<br>
-	</div>
+    <div style="clear: both;"></div>
+    <br><br><br>
 
-
-	<div style="clear: both;"></div>
-	<br>
-	<br>
-	<br>
-
-	<jsp:include page="footer.jsp" />
+    <jsp:include page="footer.jsp" />
 </body>
-
 </html>

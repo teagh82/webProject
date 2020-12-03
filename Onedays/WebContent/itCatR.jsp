@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>inst</title>
+    <title>IT</title>
     <link href="css/mainstyles.css" rel="stylesheet" type="text/css">
     <link href="css/style_login.css" rel="stylesheet" type="text/css">
     <link href="css/style_cat.css" rel="stylesheet" type="text/css">
@@ -40,7 +40,7 @@
             <a href="index.jsp" style="color: #8EBCBB">One Days</a>
         </h1>
         <div class="navbar">
-           <div class="search">
+            <div class="search">
 			<form name="serach" method ="post" action="search.jsp">
                 <input type="text" name="keyWord" placeholder="검색어를 입력해주세요.">
 				<input type="submit" value="검색" onclick="searchCheck(form)" />
@@ -92,13 +92,15 @@
             <li><a href="petCat.jsp">반려동물</a></li>
             <li><a href="flowerCat.jsp">플라워</a></li>
         </ul>
+
     </div>
 
-    <h2>악기 클래스</h2>
-	<h3 class="cr">지역</h3>
-	<form action="instCatR.jsp">
 
-    <div class="cat_region">
+    <h2>IT 클래스</h2>
+	<h3 class="cr">지역</h3>
+	<form action="itCatR.jsp">
+
+    <div class="cat_region"> 
     <select name="region" id="region" onchange="this.form.submit();">
         <option value="-1" selected>지역 선택</option>
         <option value="1">서울</option>
@@ -113,7 +115,7 @@
 
 	<jsp:useBean id="dao" class="model.ClassDAO" />
 	<%
-		ArrayList<ClassVO> list = dao.getCategorylist(3);
+		ArrayList<ClassVO> list = dao.getCategorylist(4,request.getParameter("region"));
 	%>
 
 	<!--클래스 목록-->
@@ -185,15 +187,9 @@
 	<br>
 	<br>
 	<br>
-	</div>
-
-
-	<div style="clear: both;"></div>
-	<br>
-	<br>
-	<br>
 
 	<jsp:include page="footer.jsp" />
+
 </body>
 
 </html>

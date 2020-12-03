@@ -98,7 +98,7 @@
 	<h3 class="cr">지역</h3>
 	<form action="instCatR.jsp">
 
-    <div class="cat_region">
+    <div class="cat_region"> 
     <select name="region" id="region" onchange="this.form.submit();">
         <option value="-1" selected>지역 선택</option>
         <option value="1">서울</option>
@@ -113,7 +113,7 @@
 
 	<jsp:useBean id="dao" class="model.ClassDAO" />
 	<%
-		ArrayList<ClassVO> list = dao.getCategorylist(3);
+		ArrayList<ClassVO> list = dao.getCategorylist(3,request.getParameter("region"));
 	%>
 
 	<!--클래스 목록-->
