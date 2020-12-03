@@ -114,7 +114,7 @@ public class ClassDAO {
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
 		String query1 = "SELECT like_category FROM USER";
-		String query2 = "SELECT * FROM class ORDER BY RAND() LIMIT 4";
+		String query2 = "SELECT * FROM class where is_closed = 0 ORDER BY RAND() LIMIT 4 ";
 
 		try {// 실행
 			st = con.createStatement();
@@ -206,7 +206,7 @@ public class ClassDAO {
 		public ArrayList<ClassVO> getRegionlist(Object ur) {
 			ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 		
-			String query = "SELECT * from class where class_region_idx = "+ ur +" ORDER BY RAND() LIMIT 4";
+			String query = "SELECT * from class where"+" is_closed = 0 AND"+" class_region_idx = "+ ur +" ORDER BY RAND() LIMIT 4";
 
 			try {// 실행
 				st = con.createStatement();
@@ -236,7 +236,7 @@ public class ClassDAO {
 		public ArrayList<ClassVO> getLikelist(Object uid) {
 			ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-			String query = "SELECT * from class INNER JOIN `like` on class.class_idx = like.class_idx where `like`.user_idx = "+uid+" ORDER BY RAND() LIMIT 4";
+			String query = "SELECT * from class INNER JOIN `like` on class.class_idx = like.class_idx where "+"is_closed = 0 AND"+" `like`.user_idx = "+uid+" ORDER BY RAND() LIMIT 4";
 
 			try {// 실행
 				st = con.createStatement();
@@ -266,7 +266,7 @@ public class ClassDAO {
 		public ArrayList<ClassVO> getApplylist(Object uid) {
 			ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-			String query = "SELECT * from class INNER JOIN application on class.class_idx = application.class_idx where application.user_idx "+uid+" ORDER BY RAND() LIMIT 4";
+			String query = "SELECT * from class INNER JOIN application on class.class_idx = application.class_idx where "+"is_closed = 0 AND "+"application.user_idx = 6 ORDER BY RAND() LIMIT 4";
 
 			try {// 실행
 				st = con.createStatement();
@@ -296,7 +296,7 @@ public class ClassDAO {
 		public ArrayList<ClassVO> getCategorylist(int category_idx) {
 			ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 			
-			String query = "SELECT * FROM class WHERE category_idx = " + category_idx;
+			String query = "SELECT * FROM class WHERE category_idx = " + category_idx+" AND is_closed = 0";
 
 			try {// 실행
 				st = con.createStatement();
@@ -327,9 +327,9 @@ public class ClassDAO {
 			ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 			String query = "";
 			if(regionIdx.equals("-1"))
-				query = "SELECT * FROM class WHERE category_idx = " + category_idx;
+				query = "SELECT * FROM class WHERE category_idx = " + category_idx+" AND is_closed = 0";
 			else
-				query = "SELECT * FROM class WHERE category_idx = " + category_idx + " AND class_region_idx= " + regionIdx;
+				query = "SELECT * FROM class WHERE category_idx = " + category_idx + " AND class_region_idx= " + regionIdx+" AND is_closed = 0";
 
 			try {// 실행
 				st = con.createStatement();
@@ -358,7 +358,7 @@ public class ClassDAO {
 	// 카테고리명 검색
 	public static String getCategoryByIdx(Connection con, int categoryIdx) {
 
-		String query = "SELECT name FROM category WHERE category_idx=" + categoryIdx;
+		String query = "SELECT name FROM category WHERE category_idx=" + categoryIdx +" AND is_closed = 0";
 
 		try {
 			Statement st = con.createStatement();
@@ -381,7 +381,7 @@ public class ClassDAO {
 	// 지역명 검색
 	public static String getRegionByIdx(Connection con, int regionIdx) {
 
-		String query = "SELECT name FROM class_region WHERE class_region_idx=" + regionIdx;
+		String query = "SELECT name FROM class_region WHERE class_region_idx=" + regionIdx +" AND is_closed = 0";
 
 		try {
 			Statement st = con.createStatement();

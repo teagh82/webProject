@@ -61,7 +61,7 @@ public class MyPageDAO {
 
 		String query = String.format("SELECT class_idx FROM application WHERE user_idx=\"%s\"", userIdx);
 		String query2 = String.format(
-				"SELECT name, price, image, class_region_idx, class_idx FROM class WHERE class_idx IN (%s) AND date >= curdate()",
+				"SELECT name, price, image, class_region_idx, class_idx FROM class WHERE is_closed = 0 AND class_idx IN (%s) AND date >= curdate()",
 				query);
 		System.out.println(query2);
 		try {// 실행
@@ -121,7 +121,7 @@ public class MyPageDAO {
 
 		String query = String.format("SELECT class_idx FROM `like` WHERE user_idx=\"%s\"", userIdx);
 		String query2 = String.format(
-				"SELECT name, price, image, class_region_idx, class_idx FROM class WHERE class_idx IN (%s)", query);
+				"SELECT name, price, image, class_region_idx, class_idx FROM class WHERE is_closed = 0 AND class_idx IN (%s)", query);
 		System.out.println(query2);
 		try {// 실행
 			st = con.createStatement();
