@@ -266,7 +266,7 @@ public class ClassDAO {
 		public ArrayList<ClassVO> getApplylist(Object uid) {
 			ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-			String query = "SELECT * from class INNER JOIN application on class.class_idx = application.class_idx where "+"is_closed = 0 AND "+"application.user_idx = 6 ORDER BY RAND() LIMIT 4";
+			String query = "SELECT * from class INNER JOIN application on class.class_idx = application.class_idx where "+"is_closed = 0 AND "+"application.user_idx = "+uid+" ORDER BY RAND() LIMIT 4";
 
 			try {// 실행
 				st = con.createStatement();
