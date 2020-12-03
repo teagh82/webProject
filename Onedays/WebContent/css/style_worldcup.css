@@ -6,8 +6,9 @@
 }
 
 .logo_div {
-    border-top: 3px solid #ccc;
-    border-bottom: 3px solid #ccc;
+
+    border-top: 2px solid #8EBCBB;
+    border-bottom: 2px solid #8EBCBB;
     min-width: 1500px;
     width: 100%;
 }
@@ -26,4 +27,21 @@ p {
 
 .width div {
     margin-left: 10%;
+}
+
+.worldcup{
+	margin-top:30px;
+	margin-left:15em;
+}
+
+.stop{
+	float:right;
+	margin-right:30px;
+	margin-bottom:20px;
+}
+
+.stop a{
+	text-dexoration:none;
+	color: #8EBCBB;
+	font-size:25px;
 }
