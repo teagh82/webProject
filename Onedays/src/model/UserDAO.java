@@ -10,6 +10,14 @@ import javax.swing.JOptionPane;
 
 public class UserDAO {
 	
+	private static UserDAO instance;
+	private UserDAO() {}
+	public static UserDAO getInstance() {
+		if(instance==null)
+			instance=new UserDAO();
+		return instance;
+	}
+
 	public static ResultSet getAllUser(Connection con) {
 
 		String sqlSt = "SELECT * FROM user";
@@ -60,14 +68,15 @@ public class UserDAO {
 		}
 		return null;
 	}
-	
-	public static int join(Connection con, String id, String password, String email, String name, String phone_number, int region) {
+
+	public static int join(Connection con, String id, String password, String email, String name, String phone_number,
+			int region) {
 
 		String query = "INSERT INTO user(id, email, password, name, phone_number, region) VALUES(?,?,?,?,?,?)";
 
 		try {
 			PreparedStatement ps = con.prepareStatement(query);
-			
+
 			ps.setString(1, id);
 			ps.setString(2, email);
 			ps.setString(3, password);
@@ -75,7 +84,7 @@ public class UserDAO {
 			ps.setString(5, phone_number);
 			ps.setInt(6, region);
 			int i = ps.executeUpdate();
-			
+
 			if (i == 1) { // 업데이트 성공
 				System.out.println(i + " " + "join 성공");
 				return i;
@@ -88,14 +97,15 @@ public class UserDAO {
 		}
 		return 0;
 	}
-	
-	public static int updateUserInfo(Connection con, String id, String password, String name, String phone, String email, int region, int user_idx) {
+
+	public static int updateUserInfo(Connection con, String id, String password, String name, String phone,
+			String email, int region, int user_idx) {
 		String query = "UPDATE user SET id = ?, password = ?, name = ?, phone_number = ?, email = ?, region = ? WHERE user_idx = ?";
 		try {
 			PreparedStatement ps = con.prepareStatement(query);
-			
+
 			System.out.println(id + " " + password + " " + name + " " + email + " " + phone + " " + region);
-			
+
 			ps.setString(1, id);
 			ps.setString(2, password);
 			ps.setString(3, name);
@@ -104,7 +114,7 @@ public class UserDAO {
 			ps.setInt(6, region);
 			ps.setInt(7, user_idx);
 			int i = ps.executeUpdate();
-			
+
 			if (i == 1) { // 업데이트 성공
 				System.out.println(i + " " + "updateUserInfo 성공");
 				return i;
@@ -117,7 +127,34 @@ public class UserDAO {
 		}
 		return 0;
 	}
-	
+
+	// 회원 정보 가져오기
+	public UserVO getData(Connection con, String id) {
+		
+		UserVO vo = new UserVO();
+		
+		try {
+
+			String query = "select id, email, password, name, phone_number from user where id=? ";
+			PreparedStatement ps = con.prepareStatement(query);
+			ps.setString(1, id);
+			ResultSet rs = ps.executeQuery();
+			if(rs.next()) {
+				vo.setId(rs.getString("id"));
+				vo.setEmail(rs.getString("email"));
+				vo.setPassword(rs.getString("password"));
+				vo.setName(rs.getString("name"));
+				vo.setPhoneNumber(rs.getString("phone_number"));
+				
+				System.out.println(vo);
+			}				
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return vo;
+
+	}
+
 //	public static void saveImage(Connection con, File file) {
 //		try { 
 //			String img_id=JOptionPane.showInputDialog("Enter Image ID"); 

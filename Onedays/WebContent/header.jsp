@@ -30,7 +30,7 @@
 					%>
 					<li><%=session.getAttribute("mid")%>님
 						<ul>
-							<li><a href="myPage.jsp">마이페이지</a>
+							<li><a href="checkPwMypage.jsp">마이페이지</a>
 							<li><a href="logout.jsp">로그아웃</a>
 						</ul></li>
 					<%

@@ -37,7 +37,7 @@
 		<a href="myPage.jsp">마이페이지</a>
 	</div>
 	<div class="mypage_menu">
-		<a href="myPage.jsp">개인 정보</a> <a href="apply.jsp">신청 현황</a> <a
+		<a href="checkPwMypage.jsp">개인 정보</a> <a href="apply.jsp">신청 현황</a> <a
 			href="favorite.jsp">관심 등록</a> <a href="makeClass.jsp">나의 클래스</a>
 	</div>
 
@@ -110,6 +110,15 @@
     	}
      	%>
 		</table>
+		
+		<div style="clear: both;"></div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<jsp:include page="footer.jsp" />
+		
 </body>
 
 </html>

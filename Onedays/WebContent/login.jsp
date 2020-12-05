@@ -56,6 +56,14 @@
 			<img src="imgs/flower.png" width="650px" height=auto text-align=right>
 		</div>
 	</div>
+	
+<div style="clear: both;"></div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<jsp:include page="footer.jsp" />
 
 </body>
 </html>
