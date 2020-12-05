@@ -61,7 +61,10 @@
    int classIdx = Integer.parseInt(request.getParameter("classIdx"));
    ServletContext sc = getServletContext(); 
    Connection con = (Connection)sc.getAttribute("DBconnection"); 
-   HttpSession session1 = request.getSession();
+   if(session.getAttribute("mid")==null || session.isNew()){
+	   out.println("<script>alert('로그인 후 이용해주세요.'); location.replace(\"login.jsp\"); </script>");
+	   return;
+   }
    
    ArrayList<ReviewVO> list = ReviewDAO.getReview(con, classIdx);
    classVO = ClassDAO.getClassByIdx(con, classIdx); 

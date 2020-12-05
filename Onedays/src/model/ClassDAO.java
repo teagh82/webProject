@@ -69,7 +69,6 @@ public class ClassDAO {
 		}
 		return 0;
 	}
-	
 
 	public static ClassVO getClassByIdx(Connection con, int idx) {
 		String query = "SELECT * FROM class WHERE class_idx = " + idx;
@@ -201,164 +200,168 @@ public class ClassDAO {
 		}
 		return list;
 	}// getEndlist
-	
+
 	// 사용자가 설정한 지역 클래스 보여주기
-		public ArrayList<ClassVO> getRegionlist(Object ur) {
-			ArrayList<ClassVO> list = new ArrayList<ClassVO>();
-		
-			String query = "SELECT * from class where"+" is_closed = 0 AND"+" class_region_idx = "+ ur +" ORDER BY RAND() LIMIT 4";
+	public ArrayList<ClassVO> getRegionlist(Object ur) {
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-			try {// 실행
-				st = con.createStatement();
-				rs = st.executeQuery(query);
+		String query = "SELECT * from class where" + " is_closed = 0 AND" + " class_region_idx = " + ur
+				+ " ORDER BY RAND() LIMIT 4";
 
-				while (rs.next()) {
-					ClassVO vo = new ClassVO();
+		try {// 실행
+			st = con.createStatement();
+			rs = st.executeQuery(query);
 
-					vo.setClassIdx(rs.getInt(1));
-					vo.setCategoryIdx(rs.getInt(2));
-					vo.setClassRegionIdx(rs.getInt(3));
-					vo.setName(rs.getString(4));
-					vo.setDate(rs.getString(5));
-					vo.setPlace(rs.getString(7));
-					vo.setPrice(rs.getInt(8));
-					vo.setImage(rs.getString(14));
+			while (rs.next()) {
+				ClassVO vo = new ClassVO();
 
-					list.add(vo);
-				}
-			} catch (Exception e) {
-				System.out.println(e + "=> getRegionlist fail");
+				vo.setClassIdx(rs.getInt(1));
+				vo.setCategoryIdx(rs.getInt(2));
+				vo.setClassRegionIdx(rs.getInt(3));
+				vo.setName(rs.getString(4));
+				vo.setDate(rs.getString(5));
+				vo.setPlace(rs.getString(7));
+				vo.setPrice(rs.getInt(8));
+				vo.setImage(rs.getString(14));
+
+				list.add(vo);
 			}
-			return list;
-		}// getRegionlist
-		
-		// 좋아요 클래스 보여주기
-		public ArrayList<ClassVO> getLikelist(Object uid) {
-			ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+		} catch (Exception e) {
+			System.out.println(e + "=> getRegionlist fail");
+		}
+		return list;
+	}// getRegionlist
 
-			String query = "SELECT * from class INNER JOIN `like` on class.class_idx = like.class_idx where "+"is_closed = 0 AND"+" `like`.user_idx = "+uid+" ORDER BY RAND() LIMIT 4";
+	// 좋아요 클래스 보여주기
+	public ArrayList<ClassVO> getLikelist(Object uid) {
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-			try {// 실행
-				st = con.createStatement();
-				rs = st.executeQuery(query);
+		String query = "SELECT * from class INNER JOIN `like` on class.class_idx = like.class_idx where "
+				+ "is_closed = 0 AND" + " `like`.user_idx = " + uid + " ORDER BY RAND() LIMIT 4";
 
-				while (rs.next()) {
-					ClassVO vo = new ClassVO();
+		try {// 실행
+			st = con.createStatement();
+			rs = st.executeQuery(query);
 
-					vo.setClassIdx(rs.getInt(1));
-					vo.setCategoryIdx(rs.getInt(2));
-					vo.setClassRegionIdx(rs.getInt(3));
-					vo.setName(rs.getString(4));
-					vo.setDate(rs.getString(5));
-					vo.setPlace(rs.getString(7));
-					vo.setPrice(rs.getInt(8));
-					vo.setImage(rs.getString(14));
+			while (rs.next()) {
+				ClassVO vo = new ClassVO();
 
-					list.add(vo);
-				}
-			} catch (Exception e) {
-				System.out.println(e + "=> getEndlist fail");
+				vo.setClassIdx(rs.getInt(1));
+				vo.setCategoryIdx(rs.getInt(2));
+				vo.setClassRegionIdx(rs.getInt(3));
+				vo.setName(rs.getString(4));
+				vo.setDate(rs.getString(5));
+				vo.setPlace(rs.getString(7));
+				vo.setPrice(rs.getInt(8));
+				vo.setImage(rs.getString(14));
+
+				list.add(vo);
 			}
-			return list;
-		}// getLikelist
-		
-		// 신청한 클래스 기반 추천 클래스 보여주기
-		public ArrayList<ClassVO> getApplylist(Object uid) {
-			ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+		} catch (Exception e) {
+			System.out.println(e + "=> getEndlist fail");
+		}
+		return list;
+	}// getLikelist
 
-			String query = "SELECT * from class INNER JOIN application on class.class_idx = application.class_idx where "+"is_closed = 0 AND "+"application.user_idx = "+uid+" ORDER BY RAND() LIMIT 4";
+	// 신청한 클래스 기반 추천 클래스 보여주기
+	public ArrayList<ClassVO> getApplylist(Object uid) {
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-			try {// 실행
-				st = con.createStatement();
-				rs = st.executeQuery(query);
+		String query = "SELECT * from class INNER JOIN application on class.class_idx = application.class_idx where "
+				+ "is_closed = 0 AND " + "application.user_idx = " + uid + " ORDER BY RAND() LIMIT 4";
 
-				while (rs.next()) {
-					ClassVO vo = new ClassVO();
+		try {// 실행
+			st = con.createStatement();
+			rs = st.executeQuery(query);
 
-					vo.setClassIdx(rs.getInt(1));
-					vo.setCategoryIdx(rs.getInt(2));
-					vo.setClassRegionIdx(rs.getInt(3));
-					vo.setName(rs.getString(4));
-					vo.setDate(rs.getString(5));
-					vo.setPlace(rs.getString(7));
-					vo.setPrice(rs.getInt(8));
-					vo.setImage(rs.getString(14));
+			while (rs.next()) {
+				ClassVO vo = new ClassVO();
 
-					list.add(vo);
-				}
-			} catch (Exception e) {
-				System.out.println(e + "=> getEndlist fail");
+				vo.setClassIdx(rs.getInt(1));
+				vo.setCategoryIdx(rs.getInt(2));
+				vo.setClassRegionIdx(rs.getInt(3));
+				vo.setName(rs.getString(4));
+				vo.setDate(rs.getString(5));
+				vo.setPlace(rs.getString(7));
+				vo.setPrice(rs.getInt(8));
+				vo.setImage(rs.getString(14));
+
+				list.add(vo);
 			}
-			return list;
-		}// getApplylist
+		} catch (Exception e) {
+			System.out.println(e + "=> getEndlist fail");
+		}
+		return list;
+	}// getApplylist
 
 	// 카테고리로 클래스 검색
-		public ArrayList<ClassVO> getCategorylist(int category_idx) {
-			ArrayList<ClassVO> list = new ArrayList<ClassVO>();
-			
-			String query = "SELECT * FROM class WHERE category_idx = " + category_idx+" AND is_closed = 0";
+	public ArrayList<ClassVO> getCategorylist(int category_idx) {
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-			try {// 실행
-				st = con.createStatement();
-				rs = st.executeQuery(query);
+		String query = "SELECT * FROM class WHERE category_idx = " + category_idx + " AND is_closed = 0";
 
-				while (rs.next()) {
-					ClassVO vo = new ClassVO();
+		try {// 실행
+			st = con.createStatement();
+			rs = st.executeQuery(query);
 
-					vo.setClassIdx(rs.getInt(1));
-					vo.setCategoryIdx(rs.getInt(2));
-					vo.setClassRegionIdx(rs.getInt(3));
-					vo.setName(rs.getString(4));
-					vo.setDate(rs.getString(5));
-					vo.setPlace(rs.getString(7));
-					vo.setPrice(rs.getInt(8));
-					vo.setImage(rs.getString(14));
+			while (rs.next()) {
+				ClassVO vo = new ClassVO();
 
-					list.add(vo);
-				}
-			} catch (Exception e) {
-				System.out.println(e + "=> getEndlist fail");
+				vo.setClassIdx(rs.getInt(1));
+				vo.setCategoryIdx(rs.getInt(2));
+				vo.setClassRegionIdx(rs.getInt(3));
+				vo.setName(rs.getString(4));
+				vo.setDate(rs.getString(5));
+				vo.setPlace(rs.getString(7));
+				vo.setPrice(rs.getInt(8));
+				vo.setImage(rs.getString(14));
+
+				list.add(vo);
 			}
+		} catch (Exception e) {
+			System.out.println(e + "=> getEndlist fail");
+		}
 
-			return list;
-		}// getCategorylist
-		
-		public ArrayList<ClassVO> getCategorylist(int category_idx, String regionIdx) {
-			ArrayList<ClassVO> list = new ArrayList<ClassVO>();
-			String query = "";
-			if(regionIdx.equals("-1"))
-				query = "SELECT * FROM class WHERE category_idx = " + category_idx+" AND is_closed = 0";
-			else
-				query = "SELECT * FROM class WHERE category_idx = " + category_idx + " AND class_region_idx= " + regionIdx+" AND is_closed = 0";
+		return list;
+	}// getCategorylist
 
-			try {// 실행
-				st = con.createStatement();
-				rs = st.executeQuery(query);
+	public ArrayList<ClassVO> getCategorylist(int category_idx, String regionIdx) {
+		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
+		String query = "";
+		if (regionIdx.equals("-1"))
+			query = "SELECT * FROM class WHERE category_idx = " + category_idx + " AND is_closed = 0";
+		else
+			query = "SELECT * FROM class WHERE category_idx = " + category_idx + " AND class_region_idx= " + regionIdx
+					+ " AND is_closed = 0";
 
-				while (rs.next()) {
-					ClassVO vo = new ClassVO();
+		try {// 실행
+			st = con.createStatement();
+			rs = st.executeQuery(query);
 
-					vo.setClassIdx(rs.getInt(1));
-					vo.setCategoryIdx(rs.getInt(2));
-					vo.setClassRegionIdx(rs.getInt(3));
-					vo.setName(rs.getString(4));
-					vo.setDate(rs.getString(5));
-					vo.setPlace(rs.getString(7));
-					vo.setPrice(rs.getInt(8));
-					vo.setImage(rs.getString(14));
+			while (rs.next()) {
+				ClassVO vo = new ClassVO();
 
-					list.add(vo);
-				}
-			} catch (Exception e) {
-				System.out.println(e + "=> getEndlist fail");
+				vo.setClassIdx(rs.getInt(1));
+				vo.setCategoryIdx(rs.getInt(2));
+				vo.setClassRegionIdx(rs.getInt(3));
+				vo.setName(rs.getString(4));
+				vo.setDate(rs.getString(5));
+				vo.setPlace(rs.getString(7));
+				vo.setPrice(rs.getInt(8));
+				vo.setImage(rs.getString(14));
+
+				list.add(vo);
 			}
-			return list;
-		}// getCategorylist
+		} catch (Exception e) {
+			System.out.println(e + "=> getEndlist fail");
+		}
+		return list;
+	}// getCategorylist
 
 	// 카테고리명 검색
 	public static String getCategoryByIdx(Connection con, int categoryIdx) {
 
-		String query = "SELECT name FROM category WHERE category_idx=" + categoryIdx +" AND is_closed = 0";
+		String query = "SELECT name FROM category WHERE category_idx=" + categoryIdx + " AND is_closed = 0";
 
 		try {
 			Statement st = con.createStatement();
@@ -381,7 +384,7 @@ public class ClassDAO {
 	// 지역명 검색
 	public static String getRegionByIdx(Connection con, int regionIdx) {
 
-		String query = "SELECT name FROM class_region WHERE class_region_idx=" + regionIdx +" AND is_closed = 0";
+		String query = "SELECT name FROM class_region WHERE class_region_idx=" + regionIdx + " AND is_closed = 0";
 
 		try {
 			Statement st = con.createStatement();
@@ -400,18 +403,18 @@ public class ClassDAO {
 		}
 		return null;
 	}
-	
+
 	// 이미 신청한 클래스인지 확인
 	public static boolean duplicateApplicationClass(Connection con, int classIdx, int userIdx) {
 		String query = String.format("SELECT * FROM application WHERE user_idx=%d AND class_idx=%d", userIdx, classIdx);
-		
+
 		try {
 			Statement st = con.createStatement();
 			if (st.execute(query)) {
 				ResultSet rs = st.getResultSet();
 				if (rs.next()) {
 					return false;
-				}else {
+				} else {
 					return true;
 				}
 			}
@@ -430,8 +433,9 @@ public class ClassDAO {
 				+ "(SELECT apply_people FROM (SELECT * FROM class WHERE class_idx= %d)ntd)+1 WHERE class_idx = %d",
 				classIdx, classIdx);
 		String query3 = String.format("UPDATE class SET is_closed=1 "
-				+ "WHERE apply_people = (select people from (SELECT * FROM class where class_idx = %d) query1) and class_idx=%d", classIdx, classIdx);
-		
+				+ "WHERE apply_people = (select people from (SELECT * FROM class where class_idx = %d) query1) and class_idx=%d",
+				classIdx, classIdx);
+
 		try {
 
 			PreparedStatement ps = con.prepareStatement(query);
@@ -460,7 +464,7 @@ public class ClassDAO {
 		}
 		return 0;
 	}
-	
+
 	// 클래스 신청 취소
 	public static int deleteApplicationClass(Connection con, int classIdx, int userIdx) {
 		String query = "DELETE FROM application WHERE class_idx = ? AND user_idx=?";
@@ -468,16 +472,16 @@ public class ClassDAO {
 				+ "(SELECT apply_people FROM (SELECT * FROM class WHERE class_idx= %d)ntd)-1 WHERE class_idx = %d",
 				classIdx, classIdx);
 		String query3 = String.format("UPDATE class SET is_closed=0 "
-				+ "WHERE apply_people < (select people from (SELECT * FROM class where class_idx = %d) query1) and class_idx=%d", classIdx, classIdx);
-		
-		
+				+ "WHERE apply_people < (select people from (SELECT * FROM class where class_idx = %d) query1) and class_idx=%d",
+				classIdx, classIdx);
+
 		try {
 			PreparedStatement ps = con.prepareStatement(query);
-			
+
 			ps.setInt(1, classIdx);
 			ps.setInt(2, userIdx);
 			int i = ps.executeUpdate();
-			
+
 			if (i == 1) { // 업데이트 성공
 				Statement st = con.createStatement();
 				int result = st.executeUpdate(query2);
@@ -576,7 +580,8 @@ public class ClassDAO {
 
 	// 클래스 좋아요 delete
 	public static int deleteClassLike(Connection con, int classIdx, int userIdx) {
-		String query = String.format("DELETE FROM `like` WHERE class_idx=" + classIdx + " AND user_idx=\"%s\"", userIdx);
+		String query = String.format("DELETE FROM `like` WHERE class_idx=" + classIdx + " AND user_idx=\"%s\"",
+				userIdx);
 		System.out.println(query);
 		try {// 실행
 			Statement st = con.createStatement();
@@ -586,5 +591,24 @@ public class ClassDAO {
 			System.out.println(e + "=> deleteClassLike fail");
 		}
 		return 0;
+	}
+
+	// 기간 지난 클래스 마감하기
+	public static void closeClass() throws SQLException {
+		String query = "UPDATE class SET is_closed=1 WHERE date <= curdate()";
+		Connection con = DriverManager.getConnection(
+				"jdbc:mysql://onedays.cq2qma9rqvji.us-east-2.rds.amazonaws.com/onedays", "admin", "sungshin");
+		try {
+			Statement st = con.createStatement();
+			int i = st.executeUpdate(query);
+			if (i >= 0) {
+				System.out.println(i + " class close success");
+			} else {
+				System.out.println("class close fail");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
