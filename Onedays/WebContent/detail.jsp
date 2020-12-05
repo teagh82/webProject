@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>OOO Class</title>
+<title>Class 상세 페이지</title>
 <link href="css/mainstyles.css" rel="stylesheet" type="text/css">
 <link href="css/style_detail.css" rel="stylesheet" type="text/css">
 

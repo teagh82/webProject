@@ -19,55 +19,7 @@
 </head>
 <body>
 
-	<!-- 상단  -->
-	<header>
-		<h1>
-			<a href="index.jsp" style="color: #8EBCBB">One Days</a>
-		</h1>
-		<div class="navbar">
-			<div class="dropdown">
-				<ul>
-					<li><a href = "javascript:popup()">알림</a></li>
-					<%
-					if(session.getAttribute("mid") == null) {
-					%>
-						<li><a href="login.jsp" style="color: #8EBCBB" style="text-decoration:none">로그인</a>
-	                    </li>
-					<%
-					} else{
-					%>
-					<li><%= session.getAttribute("mid") %>님
-                        <ul>
-                            <li><a href="myPage.jsp">마이페이지</a>
-                                <li><a href="logout.jsp">로그아웃</a>
-                        </ul>
-                    </li>
- 					<%
-					}
-					%>
-
-                </ul>
-
-			</div>
-		</div>
-
-	</header>
-
-	<!-- 메뉴  -->
-	<input type="checkbox" id="menuicon">
-	<label for="menuicon"> <span></span> <span></span> <span></span>
-	</label>
-	<div class="sidebar">
-		<h1 class="category">카테고리</h1>
-		<ul class="item">
-			<li><a href="craftsCat.jsp">공예</a></li>
-            <li><a href="cookCat.jsp">요리</a></li>
-            <li><a href="instCat.jsp">악기</a></li>
-            <li><a href="itCat.jsp">IT</a></li>
-            <li><a href="activityCat.jsp">액티비티</a></li>
-		</ul>
-
-	</div>
+	<jsp:include page="header.jsp" />
 	
 	<% ClassDAO.closeClass(); %>
 		
@@ -105,6 +57,14 @@
 			<img src="imgs/flower.png" width="650px" height=auto text-align=right>
 		</div>
 	</div>
+	
+	<div style="clear: both;"></div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<jsp:include page="footer.jsp" />
 
 </body>
 </html>
