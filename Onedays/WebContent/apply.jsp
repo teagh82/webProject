@@ -117,6 +117,14 @@
 				<%
 					}
 				%>
+				<%if (cnt<4) {
+     		for(;cnt<4;cnt++) {%>
+     		<td style="padding:10px;">
+            		<li class="list" style="width: 350px;" >
+                		
+            		</li> 	
+			</td>
+			 <%}} %>
 			</tr>
 			<%
 				}
@@ -136,7 +144,8 @@
 
 
 
-	<hr>
+	<div style="clear:both;"></div>
+	<br><br><br><br><hr>
 
 	<div class=apply>
 		<div class=apply_item1>
@@ -207,6 +216,14 @@
 				<%
 					}
 				%>
+				<%if (cnt<4) {
+     		for(;cnt<4;cnt++) {%>
+     		<td style="padding:10px;">
+            		<li class="list" style="width: 350px;" >
+                		
+            		</li> 	
+			</td>
+			 <%}} %>
 			</tr>
 			<%
 				}

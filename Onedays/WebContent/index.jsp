@@ -151,6 +151,15 @@
 			<%
 				}
 			%>
+			<%if (list.size()<4) {
+				int temp=list.size();
+     		for(;list.size()<4;temp++) {%>
+     		<td style="padding:10px;">
+            		<li class="list" style="width: 350px;" >
+                		
+            		</li> 	
+			</td>
+			 <%}} %>
 
 		</tr>
 	</table>
@@ -203,6 +212,15 @@
 			<%
 				}
 			%>
+			<%if (list2.size()<4) {
+				int temp=list2.size();
+     		for(;list2.size()<4;temp++) {%>
+     		<td style="padding:10px;">
+            		<li class="list" style="width: 350px;" >
+                		
+            		</li> 	
+			</td>
+			 <%}} %>
 		</tr>
 	</table>
 
@@ -254,13 +272,22 @@
 			<%
 				}
 			%>
+			<%if (list3.size()<4) {
+				int temp=list3.size();
+     		for(;list3.size()<4;temp++) {%>
+     		<td style="padding:10px;">
+            		<li class="list" style="width: 350px;" >
+                		
+            		</li> 	
+			</td>
+			 <%}} %>
 		</tr>
 	</table>
 
 
 <h2 style="padding-left: 50px; padding-top: 50px;"><%=session.getAttribute("mid")%>님의 지역에 있어요</h2>
 	<%if(session.getAttribute("mid")==null || session.isNew()){ %>
-	   <p>사진 넣기joinplease</p>
+	   <p style="text-align:center; padding-top:20px;"><img src="imgs/joinplease.png" ></p>
 	<%} else {%>
 
 	<!--사용자 지역 클래스 목록-->
@@ -309,13 +336,22 @@
 			<%
 				}
 			%>
+			<%if (list4.size()<4) {
+				int temp=list4.size();
+     		for(;list4.size()<4;temp++) {%>
+     		<td style="padding:10px;">
+            		<li class="list" style="width: 350px;" >
+                		
+            		</li> 	
+			</td>
+			 <%}} %>
 		</tr>
 	</table>
 <%} %>
 
 <h2 style="padding-left: 50px; padding-top: 50px;"><%=session.getAttribute("mid")%>님이 좋아할 것 같아요</h2>
 	<%if(session.getAttribute("mid")==null || session.isNew()){ %>
-	   <p>회원되어라.</p>
+	   <p style="text-align:center; padding-top:20px;"><img src="imgs/joinplease.png" ></p>
 	<%} else {%>
 	<!--좋아요 기반 클래스 목록-->
 	<table class="pro_body">
@@ -363,13 +399,22 @@
 			<%
 				}
 			%>
+			<%if (list5.size()<4) {
+				int temp=list5.size();
+     		for(;list5.size()<4;temp++) {%>
+     		<td style="padding:10px;">
+            		<li class="list" style="width: 350px;" >
+                		
+            		</li> 	
+			</td>
+			 <%}} %>
 		</tr>
 	</table>
 <%} %>	
 
 	<h2 style="padding-left: 50px; padding-top: 50px;"><%=session.getAttribute("mid")%>님이 신청한 클래스와 비슷해요</h2>
 	<%if(session.getAttribute("mid")==null || session.isNew()){ %>
-	   <p>회원되어라.</p>
+	   <p style="text-align:center; padding-top:20px;"><img src="imgs/joinplease.png" ></p>
 	<%} else {%>
 	<!--신청 클래스 기반 추천 클래스 목록-->
 	<table class="pro_body">
@@ -417,6 +462,15 @@
 			<%
 				}
 			%>
+			<%if (list.size()<4) {
+				int temp=list.size();
+     		for(;list.size()<4;temp++) {%>
+     		<td style="padding:10px;">
+            		<li class="list" style="width: 350px;" >
+                		
+            		</li> 	
+			</td>
+			 <%}} %>
 		</tr>
 	</table>
 <%} %>

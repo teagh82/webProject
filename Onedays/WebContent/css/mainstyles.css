@@ -8,6 +8,7 @@
     max-width: 100%;
 }
 
+.list { width: 350px; height:350px;}
 
 .list .lista { display: block; border: 1px solid #ccc; text-decoration: none; color: gray;}
 li { list-style: none; }
