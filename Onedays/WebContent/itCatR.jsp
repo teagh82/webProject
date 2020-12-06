@@ -79,7 +79,7 @@
 				cnt++;
 			%>
 			<td style="padding: 10px;">
-				<li class="list"><a
+				<li class="list" style="width:350px;"><a
 					href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
 						<img
 						src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
@@ -118,6 +118,14 @@
 			<%
 				}
 			%>
+			<%if (cnt<4) {
+     		for(;cnt<4;cnt++) {%>
+     		<td style="padding:10px;">
+            		<li class="list" style="width: 350px;" >
+                		
+            		</li> 	
+			</td>
+			 <%}} %>
 		</tr>
 		<%
 			}
