@@ -257,9 +257,13 @@
 		</tr>
 	</table>
 
-<h2 style="padding-left: 50px; padding-top: 50px;"><%=session.getAttribute("mid")%>님의 지역에 있어요</h2>
 
-	<!--클래스 목록-->
+<h2 style="padding-left: 50px; padding-top: 50px;"><%=session.getAttribute("mid")%>님의 지역에 있어요</h2>
+	<%if(session.getAttribute("mid")==null || session.isNew()){ %>
+	   <p>사진 넣기joinplease</p>
+	<%} else {%>
+
+	<!--사용자 지역 클래스 목록-->
 	<table class="pro_body">
 		<tr>
 			<%
@@ -307,10 +311,13 @@
 			%>
 		</tr>
 	</table>
+<%} %>
 
 <h2 style="padding-left: 50px; padding-top: 50px;"><%=session.getAttribute("mid")%>님이 좋아할 것 같아요</h2>
-
-	<!--클래스 목록-->
+	<%if(session.getAttribute("mid")==null || session.isNew()){ %>
+	   <p>회원되어라.</p>
+	<%} else {%>
+	<!--좋아요 기반 클래스 목록-->
 	<table class="pro_body">
 		<tr>
 			<%
@@ -358,10 +365,13 @@
 			%>
 		</tr>
 	</table>
-	
-	<h2 style="padding-left: 50px; padding-top: 50px;"><%=session.getAttribute("mid")%>님이 신청한 클래스와 비슷해요</h2>
+<%} %>	
 
-	<!--클래스 목록-->
+	<h2 style="padding-left: 50px; padding-top: 50px;"><%=session.getAttribute("mid")%>님이 신청한 클래스와 비슷해요</h2>
+	<%if(session.getAttribute("mid")==null || session.isNew()){ %>
+	   <p>회원되어라.</p>
+	<%} else {%>
+	<!--신청 클래스 기반 추천 클래스 목록-->
 	<table class="pro_body">
 		<tr>
 			<%
@@ -409,6 +419,7 @@
 			%>
 		</tr>
 	</table>
+<%} %>
 
 	<div style="clear: both;"></div>
 	<br>
