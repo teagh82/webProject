@@ -53,9 +53,11 @@ img {
 
 	<div class="worldcup" style="margin-top:30px;
 	margin-left:15em;">
-		<p id="cal"></p>
+		
+		
 		<img id="image" onclick="change(0)" > <img id="images"
 			onclick="change(1)">
+			
 		<script>
 			text = "";
 			var images = [];
@@ -87,6 +89,7 @@ img {
 			function change(n) {
 				if (cnt2 < 20) {
 					cnt++;
+						
 					if (n == 0)
 						sImages[sNum++] = images[num];
 					else
@@ -106,8 +109,14 @@ img {
 						sNum = 0;
 						showImg(num); 
 					}
+					
+					if (cnt2 == 18) {
+						var nn = images[num];
+						window.location.href="resultWorldCup.jsp?name=" + nn;
+					}
 				}
-			}	
+				
+			}
 			document.getElementById('cal').innerHTML = text;
 		</script>
 	</div>
