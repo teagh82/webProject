@@ -73,7 +73,8 @@
 	    		cnt++;
 	    	%>
 			<td style="padding: 10px;">
-				<li class="list"><a href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
+				<li class="list" style="width:350px;">
+					<a href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
                   		<img src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>" alt="" class="img">
 						<h3><%=vo.getName() %>
 							클래스
@@ -102,17 +103,24 @@
 				</a></li>
 			</td>
 			<%
-			}
-     	%>
-		</tr>
-		<%
-    	}
-     	%>
-	</table>
-	<%
-    }
-     %>
+				}
+	     	%>
+		<%if (cnt<4) {
+	     		for(;cnt<4;cnt++) {%>
+	     		<td style="padding:10px;">
+	            		<li class="list" style="width: 350px;" >
+	                		
+	            		</li> 	
+				</td>
+				 <%}} %>
+	     	</tr>
+	     	<%
+	    	}
+	     	%>
+	    </table>
+	   <%} %>
 
+	<br>
 	<div style="clear: both;"></div>
 	<br>
 	<br>
