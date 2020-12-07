@@ -50,8 +50,16 @@
 		<jsp:useBean id="dao" class="model.MyPageDAO" />
 		<%
 			int userIdx = Integer.parseInt(session.getAttribute("user_idx").toString());
-		ArrayList<ClassVO> list = dao.getMyApplicationClass(userIdx);
+			ArrayList<ClassVO> list = dao.getMyApplicationClass(userIdx);
+
+			if (list.size() == 0) {
 		%>
+		<h3 style="text-align: center; padding-top: 50px;">좋아요한 클래스가 없습니다.</h3>
+		<%
+			}
+			else {
+		%>
+
 
 		<!--클래스 목록-->
 		<table class="pro_body">
@@ -73,7 +81,7 @@
 					cnt++;
 				%>
 				<td style="padding: 10px;">
-					<li class="list"><a
+					<li class="list" style="width:350px;"><a
 						href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
 							<img
 							src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
@@ -129,7 +137,8 @@
 			<%
 				}
 			%>
-		</table>
+		</table> 
+		<% } %>
 		<!-- <script type="text/javascript">
 			function removeClass() {
 				var answer = confirm("해당 클래스 신청을 취소하시겠습니까?"); 
@@ -155,7 +164,15 @@
 		<jsp:useBean id="dao2" class="model.MyPageDAO" />
 		<%
 			int useridx = Integer.parseInt(session.getAttribute("user_idx").toString());
-		ArrayList<ClassVO> list2 = dao2.getCompleteMyApplicationClass(useridx);
+				ArrayList<ClassVO> list2 = dao2.getCompleteMyApplicationClass(useridx);
+				
+			if (list2.size() == 0) {
+		%>
+		<h3 style="text-align: center; padding-top: 50px;">좋아요한 클래스가
+			없습니다.</h3>
+		<%
+			}
+			else {
 		%>
 
 		<!--클래스 목록-->
@@ -178,7 +195,7 @@
 					cnt2++;
 				%>
 				<td style="padding: 10px;">
-					<li class="list"><a
+					<li class="list" style="width:350px;"><a
 						href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
 							<img
 							src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
@@ -216,8 +233,8 @@
 				<%
 					}
 				%>
-				<%if (cnt<4) {
-     		for(;cnt<4;cnt++) {%>
+				<%if (cnt2<4) {
+     		for(;cnt2<4;cnt2++) {%>
      		<td style="padding:10px;">
             		<li class="list" style="width: 350px;" >
                 		
@@ -229,6 +246,7 @@
 				}
 			%>
 		</table>
+		<% } %>
 	</div>
 <div style="clear: both;"></div>
 	<br>

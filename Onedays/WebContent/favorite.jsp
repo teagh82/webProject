@@ -49,6 +49,13 @@
 		<%
 			int userIdx = Integer.parseInt(session.getAttribute("user_idx").toString());
     		ArrayList<ClassVO> list = dao.getMyFavClass(userIdx);
+    		
+    		if (list.size() == 0) {
+    	%>
+			<h3 style="text-align: center; padding-top: 50px;">찜(관심등록)한 클래스가 없습니다.</h3>
+		<%
+    		}
+    		else {
     	%>
 
 		<!--클래스 목록-->
@@ -71,7 +78,7 @@
 	    		cnt++;
 	    	%>
 				<td style="padding: 10px;">
-					<li class="list"><a
+					<li class="list" style="width:350px;"><a
 						href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
 							<img
 							src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
@@ -118,7 +125,9 @@
     	}
      	%>
 		</table>
-		
+		<%
+    	}
+     	%>
 		<div style="clear: both;"></div>
 	<br>
 	<br>

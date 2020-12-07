@@ -109,10 +109,11 @@
 	<table class="pro_body">
 		<tr>
 			<%
+				System.out.print("추천클래스: " + list.size() + "개\n");
 				for (ClassVO vo : list) {
 			%>
 			<td style="padding: 10px;">
-				<li class="list"><a
+				<li class="list" style="width:350px;"><a
 					href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
 						<img
 						src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
@@ -151,16 +152,18 @@
 			<%
 				}
 			%>
-			<%if (list.size()<4) {
-				int temp=list.size();
-     		for(;list.size()<4;temp++) {%>
-     		<td style="padding:10px;">
-            		<li class="list" style="width: 350px;" >
-                		
-            		</li> 	
+			<%
+				if (list.size() < 4) {
+					int temp = list.size();
+					for (; temp < 4; temp++) {
+			%>
+			<td style="padding: 10px;">
+				<li class="list" style="width: 350px;"></li>
 			</td>
-			 <%}} %>
-
+			<%
+				}
+				}
+			%>
 		</tr>
 	</table>
 
@@ -170,10 +173,11 @@
 	<table class="pro_body">
 		<tr>
 			<%
+				System.out.print("인기 클래스: " + list2.size() + "개\n");
 				for (ClassVO vo : list2) {
 			%>
 			<td style="padding: 10px;">
-				<li class="list"><a
+				<li class="list" style="width:350px;"><a
 					href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
 						<img
 						src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
@@ -212,15 +216,18 @@
 			<%
 				}
 			%>
-			<%if (list2.size()<4) {
-				int temp=list2.size();
-     		for(;list2.size()<4;temp++) {%>
-     		<td style="padding:10px;">
-            		<li class="list" style="width: 350px;" >
-                		
-            		</li> 	
+			<%
+				if (list2.size() < 4) {
+					int temp = list2.size();
+					for (; temp < 4; temp++) {
+			%>
+			<td style="padding: 10px;">
+				<li class="list" style="width: 350px;"></li>
 			</td>
-			 <%}} %>
+			<%
+				}
+				}
+			%>
 		</tr>
 	</table>
 
@@ -230,10 +237,11 @@
 	<table class="pro_body">
 		<tr>
 			<%
+				System.out.print("마감임박 클래스: " + list3.size() + "개\n");
 				for (ClassVO vo : list3) {
 			%>
 			<td style="padding: 10px;">
-				<li class="list"><a
+				<li class="list" style="width:350px;"><a
 					href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
 						<img
 						src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
@@ -272,32 +280,43 @@
 			<%
 				}
 			%>
-			<%if (list3.size()<4) {
-				int temp=list3.size();
-     		for(;list3.size()<4;temp++) {%>
-     		<td style="padding:10px;">
-            		<li class="list" style="width: 350px;" >
-                		
-            		</li> 	
+			<%
+				if (list3.size() < 4) {
+					int temp = list3.size();
+					for (; temp < 4; temp++) {
+			%>
+			<td style="padding: 10px;">
+				<li class="list" style="width: 350px;"></li>
 			</td>
-			 <%}} %>
+			<%
+				}
+				}
+			%>
 		</tr>
 	</table>
 
-
 <h2 style="padding-left: 50px; padding-top: 50px;"><%=session.getAttribute("mid")%>님의 지역에 있어요</h2>
-	<%if(session.getAttribute("mid")==null || session.isNew()){ %>
+<%if(session.getAttribute("mid")==null || session.isNew()){ %>
 	   <p style="text-align:center; padding-top:20px;"><img src="imgs/joinplease.png" ></p>
 	<%} else {%>
+	<%
+     if(list6.size() == 0){
+    %>
+	 <h3 style="text-align:center; padding-top:50px;">지역을 설정해주세요.</h3>
+	<%
+     }
+     else{
+     %>
 
-	<!--사용자 지역 클래스 목록-->
+	<!--클래스 목록-->
 	<table class="pro_body">
 		<tr>
 			<%
-				for (ClassVO vo : list4) {
+				System.out.print("유저지역 클래스: " + list4.size() + "개\n");
+					for (ClassVO vo : list4) {
 			%>
 			<td style="padding: 10px;">
-				<li class="list"><a
+				<li class="list" style="width:350px;"><a
 					href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
 						<img
 						src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
@@ -336,31 +355,46 @@
 			<%
 				}
 			%>
-			<%if (list4.size()<4) {
-				int temp=list4.size();
-     		for(;list4.size()<4;temp++) {%>
-     		<td style="padding:10px;">
-            		<li class="list" style="width: 350px;" >
-                		
-            		</li> 	
+			<%
+				if (list4.size() < 4) {
+					int temp = list4.size();
+					for (; temp < 4; temp++) {
+			%>
+			<td style="padding: 10px;">
+				<li class="list" style="width: 350px;"></li>
 			</td>
-			 <%}} %>
+			<%
+				}
+				}
+			%>
 		</tr>
 	</table>
-<%} %>
+	<%
+				}}
+			%>
+			
 
 <h2 style="padding-left: 50px; padding-top: 50px;"><%=session.getAttribute("mid")%>님이 좋아할 것 같아요</h2>
-	<%if(session.getAttribute("mid")==null || session.isNew()){ %>
+<%if(session.getAttribute("mid")==null || session.isNew()){ %>
 	   <p style="text-align:center; padding-top:20px;"><img src="imgs/joinplease.png" ></p>
 	<%} else {%>
 	<!--좋아요 기반 클래스 목록-->
+	<%
+     if(list6.size() == 0){
+    %>
+	 <h3 style="text-align:center; padding-top:50px;">좋아요한 클래스가 없습니다.</h3>
+	<%
+     }
+     else{
+     %>
 	<table class="pro_body">
 		<tr>
 			<%
-				for (ClassVO vo : list5) {
+				System.out.print("좋아할만한 클래스: " + list5.size()+"개\n");
+					for (ClassVO vo : list5) {
 			%>
 			<td style="padding: 10px;">
-				<li class="list"><a
+				<li class="list" style="width:350px;"><a
 					href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
 						<img
 						src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
@@ -399,31 +433,45 @@
 			<%
 				}
 			%>
-			<%if (list5.size()<4) {
-				int temp=list5.size();
-     		for(;list5.size()<4;temp++) {%>
-     		<td style="padding:10px;">
-            		<li class="list" style="width: 350px;" >
-                		
-            		</li> 	
+			<%
+				if (list5.size() < 4) {
+					int temp = list5.size();
+					for (; temp < 4; temp++) {
+			%>
+			<td style="padding: 10px;">
+				<li class="list" style="width: 350px;"></li>
 			</td>
-			 <%}} %>
+			<%
+				}
+				}
+			%>
 		</tr>
 	</table>
-<%} %>	
-
+	<%
+				}}
+			%>
+	
 	<h2 style="padding-left: 50px; padding-top: 50px;"><%=session.getAttribute("mid")%>님이 신청한 클래스와 비슷해요</h2>
 	<%if(session.getAttribute("mid")==null || session.isNew()){ %>
 	   <p style="text-align:center; padding-top:20px;"><img src="imgs/joinplease.png" ></p>
 	<%} else {%>
 	<!--신청 클래스 기반 추천 클래스 목록-->
+	<%
+     if(list6.size() == 0){
+    %>
+	 <h3 style="text-align:center; padding-top:50px;">신청한 클래스가 없습니다.</h3>
+	<%
+     }
+     else{
+     %>
 	<table class="pro_body">
 		<tr>
 			<%
-				for (ClassVO vo : list6) {
+				System.out.print("비슷해요: " + list6.size() + "개\n");
+					for (ClassVO vo : list6) {
 			%>
 			<td style="padding: 10px;">
-				<li class="list"><a
+				<li class="list" style="width:350px;"><a
 					href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
 						<img
 						src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
@@ -462,18 +510,23 @@
 			<%
 				}
 			%>
-			<%if (list.size()<4) {
-				int temp=list.size();
-     		for(;list.size()<4;temp++) {%>
-     		<td style="padding:10px;">
-            		<li class="list" style="width: 350px;" >
-                		
-            		</li> 	
+			<%
+				if (list6.size() < 4) {
+					int temp = list6.size();
+					for (; temp < 4; temp++) {
+			%>
+			<td style="padding: 10px;">
+				<li class="list" style="width: 350px;"></li>
 			</td>
-			 <%}} %>
+			<%
+				}
+				}
+			%>
+			
 		</tr>
-	</table>
-<%} %>
+	</table> <%
+				} }
+			%>
 
 	<div style="clear: both;"></div>
 	<br>
