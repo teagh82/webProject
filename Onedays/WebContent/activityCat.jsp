@@ -69,75 +69,89 @@
     %>
 
      <!--클래스 목록-->
-     <div id="cate">
-	<table class="pro_body" >
-		<%
-		int cnt = 0;
-    	for(int i = 0; i <= (list.size() / 4); i++){
-    	%>
-		<tr>
+     <%
+     if(list.size() == 0){
+    	 %>
+	<div style="clear: both; margin: 150px;"></div>
+	<h2 style="text-align: center;">해당 클래스가 없습니다.</h2>
+	<div style="clear: both; margin: 150px;"></div>
+	<%
+     }
+     else{
+     %>
+     
+	     <div id="cate">
+		<table class="pro_body" >
 			<%
-			int lim;
-			if(list.size() - cnt <= 4)
-				lim = list.size() - cnt;
-			else
-				lim = 4;
-			
-			for(int j = 0; j < lim; j++){
-				int idx = (i*4)+j;
-	    		ClassVO vo = list.get(idx);
-	    		cnt++;
+			int cnt = 0;
+	    	for(int i = 0; i <= (list.size() / 4); i++){
 	    	%>
-			<td style="padding:10px;">
-            		<li class="list" style="width:350px;">
-                		<a href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
-                  		<img src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>" alt="" class="img">
-                  	 	<h3><%=vo.getName() %> 클래스</h3>
-                   		<p><%=vo.getPrice() %>원</p>
-                   		<%
-                   		switch(vo.getClassRegionIdx()){
-                   		case 1: %>
-                   			<h4 style="padding: 0 5px 5px;">서울</h4>
-                   			<% 
-                   			break;
-                   		case 2:%>
-                   			<h4 style="padding: 0 5px 5px;">경기</h4>
-                   			<%
-                   			break;
-                   		case 3:%>
-                   			<h4 style="padding: 0 5px 5px;">충청도</h4>
-                   			<%
-                   			break;
-                   		case 4:%>
-                   			<h4 style="padding: 0 5px 5px;">전라도</h4>
-                   			<%
-                   			break;
-                   		case 5:%>
-                   			<h4 style="padding: 0 5px 5px;">경상도</h4>
-                   			<%
-                   			break;
-                   		}
-                   		%>
-                   		
-               		 	</a>
-            		</li> 	
-			</td>
-		<%
-			}
-     	%>
-	<%if (cnt<4) {
-     		for(;cnt<4;cnt++) {%>
-     		<td style="padding:10px;">
-            		<li class="list" style="width: 350px;" >
-                		
-            		</li> 	
-			</td>
-			 <%}} %>
-     	</tr>
-     	<%
-    	}
-     	%>
-    </table>
+			<tr>
+				<%
+				int lim;
+				if(list.size() - cnt <= 4)
+					lim = list.size() - cnt;
+				else
+					lim = 4;
+				
+				for(int j = 0; j < lim; j++){
+					int idx = (i*4)+j;
+		    		ClassVO vo = list.get(idx);
+		    		cnt++;
+		    	%>
+				<td style="padding:10px;">
+	            		<li class="list" style="width:350px;">
+	                		<a href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
+	                  		<img src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>" alt="" class="img">
+	                  	 	<h3><%=vo.getName() %> 클래스</h3>
+	                   		<p><%=vo.getPrice() %>원</p>
+	                   		<%
+	                   		switch(vo.getClassRegionIdx()){
+	                   		case 1: %>
+	                   			<h4 style="padding: 0 5px 5px;">서울</h4>
+	                   			<% 
+	                   			break;
+	                   		case 2:%>
+	                   			<h4 style="padding: 0 5px 5px;">경기</h4>
+	                   			<%
+	                   			break;
+	                   		case 3:%>
+	                   			<h4 style="padding: 0 5px 5px;">충청도</h4>
+	                   			<%
+	                   			break;
+	                   		case 4:%>
+	                   			<h4 style="padding: 0 5px 5px;">전라도</h4>
+	                   			<%
+	                   			break;
+	                   		case 5:%>
+	                   			<h4 style="padding: 0 5px 5px;">경상도</h4>
+	                   			<%
+	                   			break;
+	                   		}
+	                   		%>
+	                   		
+	               		 	</a>
+	            		</li> 	
+				</td>
+			<%
+				}
+	     	%>
+		<%if (cnt<4) {
+	     		for(;cnt<4;cnt++) {%>
+	     		<td style="padding:10px;">
+	            		<li class="list" style="width: 350px;" >
+	                		
+	            		</li> 	
+				</td>
+				 <%}} %>
+	     	</tr>
+	     	<%
+	    	}
+	     	%>
+	     	
+	
+	    </table>
+	   <%} %>
 </div>
     <div style="clear: both;"></div>
     <br><br><br>
