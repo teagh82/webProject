@@ -29,7 +29,8 @@
 	
 	<div style="min-width:1500px; width:100%;">
 	
-	<%String name = request.getParameter("name");
+	<%
+	String name = request.getParameter("name");
 	String n = name.substring(12, name.length()-4); 
 	%>
 	
