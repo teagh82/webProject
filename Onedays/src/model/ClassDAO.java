@@ -8,8 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpSession;
-
 public class ClassDAO {
 
 	Connection con;
@@ -109,28 +107,50 @@ public class ClassDAO {
 	}
 
 	// 추천 클래스 보여주기 위함
-	public ArrayList<ClassVO> getRecomendlist() {
+	public ArrayList<ClassVO> getRecomendlist(int user_idx) {
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-		String query1 = "SELECT like_category FROM USER";
+		System.out.println("us idx -> " + user_idx);
+		String query1 = String.format("SELECT like_category FROM user WHERE user_idx = %d", user_idx);
 		String query2 = "SELECT * FROM class where is_closed = 0 ORDER BY RAND() LIMIT 4 ";
 
+		ResultSet result = null;
+		
 		try {// 실행
 			st = con.createStatement();
-			rs = st.executeQuery(query2);
 
-			while (rs.next()) {
+			if (user_idx == -1) {
+				result = st.executeQuery(query2);
+			} else {
+				rs = st.executeQuery(query1);
+				if(rs.next()) {
+					int idx = rs.getInt(1);
+					
+					System.out.println("ct idx -> " + idx);
+					String query3 = String.format(
+							"SELECT * FROM class where is_closed = 0 AND category_idx = %d ORDER BY RAND() LIMIT 4 ", idx);
+					try {
+						Statement st1 = con.createStatement();
+						result = st1.executeQuery(query3);
+					} catch (Exception e) {
+						System.out.println(e + "=> getRecomendlist brace fail");
+					}
+
+				}
+			}
+
+			while (result.next()) {
 				ClassVO vo = new ClassVO();
 
-				vo.setClassIdx(rs.getInt(1));
-				vo.setCategoryIdx(rs.getInt(2));
-				vo.setClassRegionIdx(rs.getInt(3));
-				vo.setName(rs.getString(4));
-				vo.setDate(rs.getString(5));
-				vo.setPlace(rs.getString(7));
-				vo.setPrice(rs.getInt(8));
-				vo.setLevel(rs.getString(9));
-				vo.setImage(rs.getString(14));
+				vo.setClassIdx(result.getInt(1));
+				vo.setCategoryIdx(result.getInt(2));
+				vo.setClassRegionIdx(result.getInt(3));
+				vo.setName(result.getString(4));
+				vo.setDate(result.getString(5));
+				vo.setPlace(result.getString(7));
+				vo.setPrice(result.getInt(8));
+				vo.setLevel(result.getString(9));
+				vo.setImage(result.getString(14));
 
 				list.add(vo);
 			}

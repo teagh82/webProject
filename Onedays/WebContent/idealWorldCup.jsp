@@ -41,23 +41,29 @@ img {
 
 	<jsp:include page="header.jsp" />
 
+	<%
+	if(session.getAttribute("mid")==null || session.isNew()){
+	   out.println("<script>alert('로그인 후 이용해주세요.'); location.replace(\"login.jsp\"); </script>");
+	   return;
+   }
+   %>
+
 	<!-- 이상형 월드컵  -->
 	<br style="clear: both;">
 
 
 	<div class="logo_div">
 		<h1 style="text-align: center; padding: 5px; color: #808080;">클래스
-			월드컵</h1> 
-		
+			월드컵</h1>
+
 	</div>
 
-	<div class="worldcup" style="margin-top:30px;
-	margin-left:15em;">
-		
-		
-		<img id="image" onclick="change(0)" > <img id="images"
+	<div class="worldcup" style="margin-top: 30px; margin-left: 15em;">
+
+
+		<img id="image" onclick="change(0)"> <img id="images"
 			onclick="change(1)">
-			
+
 		<script>
 			text = "";
 			var images = [];
@@ -120,11 +126,10 @@ img {
 			document.getElementById('cal').innerHTML = text;
 		</script>
 	</div>
-	<div class="stop" style="float:right;
-	margin-right:30px;
-	margin-bottom:20px;">
-		<a href="index.jsp" style="text-dexoration:none; color: #8EBCBB;
-	font-size:25px;">그만하기</a>
+	<div class="stop"
+		style="float: right; margin-right: 30px; margin-bottom: 20px;">
+		<a href="index.jsp"
+			style="text-dexoration: none; color: #8EBCBB; font-size: 25px;">그만하기</a>
 	</div>
 </body>
 </html>
