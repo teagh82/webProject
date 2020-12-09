@@ -9,12 +9,12 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 
 public class UserDAO {
-	
+
 	private static UserDAO instance;
-	private UserDAO() {}
+
 	public static UserDAO getInstance() {
-		if(instance==null)
-			instance=new UserDAO();
+		if (instance == null)
+			instance = new UserDAO();
 		return instance;
 	}
 
@@ -130,77 +130,48 @@ public class UserDAO {
 
 	// 회원 정보 가져오기
 	public UserVO getData(Connection con, String id) {
-		
+
 		UserVO vo = new UserVO();
-		
+
 		try {
 
 			String query = "select id, email, password, name, phone_number from user where id=? ";
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setString(1, id);
 			ResultSet rs = ps.executeQuery();
-			if(rs.next()) {
+			if (rs.next()) {
 				vo.setId(rs.getString("id"));
 				vo.setEmail(rs.getString("email"));
 				vo.setPassword(rs.getString("password"));
 				vo.setName(rs.getString("name"));
 				vo.setPhoneNumber(rs.getString("phone_number"));
-				
+
 				System.out.println(vo);
-			}				
-		}catch(Exception e) {
+			}
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return vo;
 
 	}
 
-//	public static void saveImage(Connection con, File file) {
-//		try { 
-//			String img_id=JOptionPane.showInputDialog("Enter Image ID"); 
-//			FileInputStream fis=null; 
-//			String query="insert into class_img(class_img_idx,class_idx, img) values (?,?.?)"; 
-//			PreparedStatement pstm=con.prepareStatement(query); 
-//			fis=new FileInputStream(file); 
-//			pstm.setString(1, img_id);  
-//			pstm.setBinaryStream(2, (InputStream)fis, (int)file.length()); 
-//			pstm.executeUpdate(); 
-//			JOptionPane.showMessageDialog(null, "Image Successfully Uploaded to Database"); 
-//			pstm.close(); 
-//			con.close(); 
-//
-//		} catch (Exception ex) { 
-//			System.out.println("Exception Occured: "+ex); 
-//		} 
-//	} 
-//	
-//	public static void getSavedImages(Connection con){ 
-//		try { 
-//			PreparedStatement pstm1 = con.prepareStatement("select * from class_img"); 
-//			ResultSet rs1 = pstm1.executeQuery(); 
-//			while(rs1.next()) { 
-//				InputStream fis1; 
-//				FileOutputStream fos; 
-//				String image_id; 
-//				try { 
-//					fis1 = rs1.getBinaryStream("img"); 
-//					image_id=rs1.getString("class_img_idx"); 
-//					fos = new FileOutputStream(new File("path/to" + "C:\\" + (image_id) + "Your Extension(.jpg/.gif)")); 
-//					int c; 
-//					while ((c = fis1.read()) != -1) { 
-//						fos.write(c); 
-//					} 
-//					fis1.close(); 
-//					fos.close(); 
-//
-//				} catch (Exception ex) { 
-//					System.out.println(ex); 
-//				} 
-//			} 
-//			pstm1.close(); 
-//			con.close(); 
-//		} catch (Exception ex) { 
-//			System.out.println("Exception Occured:"+ex); 
-//		} 
-//	} 
+	public static int updateUserLikeCategory(Connection con, int n, int user_idx) {
+		String query = String.format("UPDATE user SET like_category = %d WHERE user_idx = %d", n, user_idx);
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			int i = ps.executeUpdate();
+
+			if (i == 1) { // 업데이트 성공
+				System.out.println(i + " " + "like category update 성공");
+				return i;
+			} else {
+				System.out.println(i + " " + "like category update 실패");
+				return 0;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+		
+	}
 }

@@ -94,7 +94,12 @@
 
    <jsp:useBean id="dao" class="model.ClassDAO" />
    <%
-   ArrayList<ClassVO> list = dao.getRecomendlist();
+   int user_idx;
+   if(session.getAttribute("mid")==null || session.isNew()){
+	   user_idx = -1;
+   }else user_idx = Integer.parseInt(session.getAttribute("user_idx").toString());
+   
+   ArrayList<ClassVO> list = dao.getRecomendlist(user_idx);
    ArrayList<ClassVO> list2 = dao.getPopularlist();
    ArrayList<ClassVO> list3 = dao.getEndlist();
    
