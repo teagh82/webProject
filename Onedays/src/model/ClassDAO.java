@@ -135,8 +135,8 @@ public class ClassDAO {
 					} catch (Exception e) {
 						System.out.println(e + "=> getRecomendlist brace fail");
 					}
-
 				}
+				result = st.executeQuery(query2);
 			}
 
 			while (result.next()) {
