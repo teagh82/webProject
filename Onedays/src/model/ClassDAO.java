@@ -129,7 +129,6 @@ public class ClassDAO {
 	public ArrayList<ClassVO> getRecomendlist(int user_idx) {
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-		System.out.println("us idx -> " + user_idx);
 		String query1 = String.format("SELECT like_category FROM user WHERE user_idx = %d", user_idx);
 		String query2 = "SELECT * FROM class where is_closed = 0 ORDER BY RAND() LIMIT 4 ";
 
@@ -138,14 +137,13 @@ public class ClassDAO {
 		try {// 실행
 			st = con.createStatement();
 
-			if (user_idx == -1) {
+			if (user_idx == -1) { // 로그인 안한 상태
 				result = st.executeQuery(query2);
-			} else {
+			} else { // 로그인 한 상태
 				rs = st.executeQuery(query1);
 				if(rs.next()) {
 					int idx = rs.getInt(1);
 					
-					System.out.println("ct idx -> " + idx);
 					String query3 = String.format(
 							"SELECT * FROM class where is_closed = 0 AND category_idx = %d ORDER BY RAND() LIMIT 4 ", idx);
 					try {
