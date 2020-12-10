@@ -58,6 +58,13 @@ img {
 
 	</div>
 
+<br>
+
+	<div class="logo_div">
+		<h1 id="score" style="text-align: center; padding: 5px; color: #808080;">16강</h1>
+
+	</div>
+
 	<div class="worldcup" style="margin-top: 30px; margin-left: 15em;">
 
 
@@ -72,6 +79,7 @@ img {
 			var num = 0;
 			var sNum = 0;
 			var cnt2 = 0;
+			var tmpcnt = 16;
 
 			function upload() {
 
@@ -95,7 +103,10 @@ img {
 			function change(n) {
 				if (cnt2 < 20) {
 					cnt++;
-						
+					
+					//몇강인지 표시
+					document.getElementById('score').innerText = "16강     "+cnt+"/"+tmpcnt/2;
+					
 					if (n == 0)
 						sImages[sNum++] = images[num];
 					else
@@ -110,6 +121,7 @@ img {
 							sImages[i] = null;
 						}
 						images.splice(cnt);
+						tmpcnt=cnt;
 						cnt = 0;
 						num = 0;
 						sNum = 0;
