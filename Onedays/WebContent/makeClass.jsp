@@ -5,38 +5,38 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>My Page</title>
-    <link href="css/mainstyles.css" rel="stylesheet" type="text/css">
-    <link href="css/style_mypage.css" rel="stylesheet" type="text/css">
-    <link href="css/style_makeclass.css" rel="stylesheet" type="text/css">
-	
-	<script>
+<meta charset="UTF-8">
+<title>My Page</title>
+<link href="css/mainstyles.css" rel="stylesheet" type="text/css">
+<link href="css/style_mypage.css" rel="stylesheet" type="text/css">
+<link href="css/style_makeclass.css" rel="stylesheet" type="text/css">
+
+<script>
 	function popup() {
 		var url = "notice.jsp";
 		var name = "popup test";
 		var option = "width = 500, height = 100, top = 100, left = 800, location = no"
 		window.open(url, name, option);
 	}
-	
-	function searchCheck(frm){
-        //검색
-        if(frm.keyWord.value ==""){
-            alert("검색 단어를 입력하세요.");
-            frm.keyWord.focus();
-            return;
-        }
-        frm.submit();   
-        location.href = "search.jsp";
-    }
+
+	function searchCheck(frm) {
+		//검색
+		if (frm.keyWord.value == "") {
+			alert("검색 단어를 입력하세요.");
+			frm.keyWord.focus();
+			return;
+		}
+		frm.submit();
+		location.href = "search.jsp";
+	}
 </script>
 
 </head>
 
 <body>
-    <jsp:include page="header.jsp" />
+	<jsp:include page="header.jsp" />
 
-    <!-- 마이페이지 메뉴  -->
+	<!-- 마이페이지 메뉴  -->
 	<div class=mypage>
 		<a href="myPage.jsp">마이페이지</a>
 	</div>
@@ -90,26 +90,32 @@
  %>
 						<h4 style="padding: 0 5px 5px;">서울</h4> <%
  	break;
- 	case 2:
+ case 2:
  %>
 						<h4 style="padding: 0 5px 5px;">경기</h4> <%
  	break;
- 		case 3:
+ case 3:
  %>
 						<h4 style="padding: 0 5px 5px;">충청도</h4> <%
  	break;
- 		case 4:
+ case 4:
  %>
 						<h4 style="padding: 0 5px 5px;">전라도</h4> <%
  	break;
- 		case 5:
+ case 5:
  %>
 						<h4 style="padding: 0 5px 5px;">경상도</h4> <%
  	break;
- 		}
+ }
  %>
 
-				</a></li>
+				</a>
+				<form method="post" action=""
+					onsubmit="return confirm('해당 클래스를 삭제 하시겠습니까?');">
+					<input class=Cbtn type="hidden" name="class_idx" id="class_idx"
+						value="<%=vo.getClassIdx()%>" /> <input type="submit"
+						value="삭제하기" style="padding: 5px;">
+				</form></li>
 			</td>
 			<%
 				}
@@ -126,7 +132,7 @@
 	</div>
 
 
-<div style="clear: both;"></div>
+	<div style="clear: both;"></div>
 	<br>
 	<br>
 	<br>

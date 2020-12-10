@@ -100,6 +100,15 @@ div[class="mypage_menu"] {
     color: white;
 }
 
+.btn2 {
+	width: 5%;
+	margin-top: 80px;
+	margin-left: 80px;
+	background-color: #bcc4c5;
+	border: 3px solid #bcc4c5;
+	font-size: 13px;
+	color: white;
+}
 
 /* 신청 현황  */
 
