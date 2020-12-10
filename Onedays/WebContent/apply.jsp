@@ -60,7 +60,7 @@
 
 			if (list.size() == 0) {
 		%>
-		<h3 style="text-align: center; padding-top: 50px;">좋아요한 클래스가 없습니다.</h3>
+		<h3 style="text-align: center; padding-top: 50px;">신청한 클래스가 없습니다.</h3>
 		<%
 			}
 			else {
@@ -174,7 +174,7 @@
 				
 			if (list2.size() == 0) {
 		%>
-		<h3 style="text-align: center; padding-top: 50px;">좋아요한 클래스가
+		<h3 style="text-align: center; padding-top: 50px;">수강완료 클래스가
 			없습니다.</h3>
 		<%
 			}
