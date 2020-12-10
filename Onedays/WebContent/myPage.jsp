@@ -91,6 +91,8 @@
 			</div>
 			<div class=btn_box>
 				<input class=btn type="submit" value="수정하기" />
+				<input class=btn2 type="button" value="탈퇴하기" />
+				
 			</div>
 		</form>
 		
