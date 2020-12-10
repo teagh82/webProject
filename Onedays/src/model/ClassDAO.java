@@ -67,6 +67,25 @@ public class ClassDAO {
 		}
 		return 0;
 	}
+	
+	public static int deleteClass(Connection con, int class_idx) {
+		String query = String.format("DELETE FROM class WHERE class_idx = %d", class_idx);
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			int i = ps.executeUpdate();
+
+			if (i == 1) { // 업데이트 성공
+				System.out.println(i + " " + "deleteClass 성공");
+				return i;
+			} else {
+				System.out.println(i + " " + "deleteClass 실패");
+				return 0;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 	public static ClassVO getClassByIdx(Connection con, int idx) {
 		String query = "SELECT * FROM class WHERE class_idx = " + idx;
@@ -135,8 +154,8 @@ public class ClassDAO {
 					} catch (Exception e) {
 						System.out.println(e + "=> getRecomendlist brace fail");
 					}
+
 				}
-				result = st.executeQuery(query2);
 			}
 
 			while (result.next()) {
@@ -318,7 +337,7 @@ public class ClassDAO {
 	public ArrayList<ClassVO> getCategorylist(int category_idx) {
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-		String query = "SELECT * FROM class WHERE category_idx = " + category_idx + " AND is_closed = 0";
+		String query = "SELECT * FROM class WHERE category_idx = " + category_idx + " AND is_closed = 0 ORDER BY class_idx DESC";
 
 		try {// 실행
 			st = con.createStatement();

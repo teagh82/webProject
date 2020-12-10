@@ -61,8 +61,8 @@ img {
 	<div class="worldcup" style="margin-top: 30px; margin-left: 15em;">
 
 
-		<img id="image" onclick="change(0)"> <img id="images"
-			onclick="change(1)">
+		<img id="image" onclick="change(0)"> 
+		<img id="images" onclick="change(1)">
 
 		<script>
 			text = "";
@@ -105,6 +105,7 @@ img {
 					showImg(num);
 
 					if (cnt == images.length / 2) {
+						console.log("cnt=> " , cnt);
 						for (i = 0; i < sImages.length; i++) {
 							images[i] = sImages[i];
 							sImages[i] = null;
