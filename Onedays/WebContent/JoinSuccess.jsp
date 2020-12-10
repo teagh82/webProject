@@ -132,5 +132,13 @@
 	<br>
 	<br>
 
+<div style="clear: both;"></div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<jsp:include page="footer.jsp" />
+
 </body>
 </html>
