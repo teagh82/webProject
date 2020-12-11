@@ -97,6 +97,25 @@ public class UserDAO {
 		}
 		return 0;
 	}
+	
+	public static int deleteUserInfo(Connection con, int user_idx) {
+		String query = String.format("DELETE FROM user WHERE user_idx = %d", user_idx);
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			int i = ps.executeUpdate();
+
+			if (i == 1) { // 업데이트 성공
+				System.out.println(i + " " + "deleteUserInfo 성공");
+				return i;
+			} else {
+				System.out.println(i + " " + "deleteUserInfo 실패");
+				return 0;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 	public static int updateUserInfo(Connection con, String id, String password, String name, String phone,
 			String email, int region, int user_idx) {
