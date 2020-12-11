@@ -109,6 +109,16 @@
    %>
 
    <h2 style="padding-left: 50px; padding-top: 50px;">추천 클래스</h2>
+	<%
+     if(list.size() == 0){
+    	 %>
+	<div style="clear: both; margin: 100px;"></div>
+	<h3 style="text-align: center;">해당 클래스가 없습니다.</h3>
+	<div style="clear: both; margin: 100px;"></div>
+	<%
+     }
+     else{
+     %>
 
    <!--클래스 목록-->
    <table class="pro_body">
@@ -171,8 +181,19 @@
          %>
       </tr>
    </table>
+<%} %>
 
    <h2 style="padding-left: 50px; padding-top: 50px;">인기 클래스</h2>
+<%
+     if(list2.size() == 0){
+    	 %>
+	<div style="clear: both; margin: 100px;"></div>
+	<h3 style="text-align: center;">해당 클래스가 없습니다.</h3>
+	<div style="clear: both; margin: 100px;"></div>
+	<%
+     }
+     else{
+     %>
 
    <!--클래스 목록-->
    <table class="pro_body">
@@ -235,9 +256,19 @@
          %>
       </tr>
    </table>
+<%} %>
 
    <h2 style="padding-left: 50px; padding-top: 50px;">마감임박 클래스</h2>
-
+<%
+     if(list3.size() == 0){
+    	 %>
+	<div style="clear: both; margin: 100px;"></div>
+	<h3 style="text-align: center;">해당 클래스가 없습니다.</h3>
+	<div style="clear: both; margin: 100px;"></div>
+	<%
+     }
+     else{
+     %>
    <!--클래스 목록-->
    <table class="pro_body">
       <tr>
@@ -299,7 +330,7 @@
          %>
       </tr>
    </table>
-
+<%} %>
 
 <%if(session.getAttribute("mid")==null || session.isNew()){ %>
 <h2 style="padding-left: 50px; padding-top: 50px;">비회원님의 지역에 있어요</h2>
