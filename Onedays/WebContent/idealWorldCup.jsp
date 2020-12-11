@@ -102,7 +102,7 @@ img {
 			}
 
 			function change(n) {
-				if (cnt2 <= 20) {
+				if (cnt2 < 19) {
 					cnt++;
 					cntscore++;
 					//몇강인지 표시
