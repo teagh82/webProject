@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8" import="model.ClassVO"
+   pageEncoding="UTF-8" import="model.ClassVO" import="model.UserDAO"
    import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html> 

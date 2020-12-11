@@ -102,7 +102,7 @@ img {
 			}
 
 			function change(n) {
-				if (cnt2 < 20) {
+				if (cnt2 <= 20) {
 					cnt++;
 					cntscore++;
 					//몇강인지 표시
@@ -133,10 +133,15 @@ img {
 						sNum = 0;
 						showImg(num); 
 					}
+	
 					
-					if (cnt2 == 18) {
+					if (cnt2 >18) {
+						document.getElementById('image').src = images[num];
+						document.getElementById('images').src = images[num];
+						
 						var nn = images[num];
 						window.location.href="resultWorldCup.jsp?name=" + nn;
+						
 					}
 				}
 				

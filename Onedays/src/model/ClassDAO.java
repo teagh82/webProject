@@ -125,18 +125,21 @@ public class ClassDAO {
 				rs = st.executeQuery(query1);
 				if(rs.next()) {
 					int idx = rs.getInt(1);
-					
 					System.out.println("ct idx -> " + idx);
-					String query3 = String.format(
-							"SELECT * FROM class where is_closed = 0 AND category_idx = %d ORDER BY RAND() LIMIT 4 ", idx);
-					try {
-						Statement st1 = con.createStatement();
-						result = st1.executeQuery(query3);
-					} catch (Exception e) {
-						System.out.println(e + "=> getRecomendlist brace fail");
+					
+					if(idx > 0) {
+						String query3 = String.format(
+								"SELECT * FROM class where is_closed = 0 AND category_idx = %d ORDER BY RAND() LIMIT 4 ", idx);
+						try {
+							Statement st1 = con.createStatement();
+							result = st1.executeQuery(query3);
+						} catch (Exception e) {
+							System.out.println(e + "=> getRecomendlist brace fail");
+						}
+						
 					}
+					else result = st.executeQuery(query2);
 				}
-				result = st.executeQuery(query2);
 			}
 
 			while (result.next()) {
