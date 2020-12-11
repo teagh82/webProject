@@ -51,11 +51,12 @@ public class ApplicationClass extends HttpServlet {
 
 		int classIdx = Integer.parseInt(request.getParameter("classIdx"));
 		int userIdx = Integer.parseInt(session.getAttribute("user_idx").toString());
-
+		
 		boolean flag = ClassDAO.duplicateApplicationClass(con, classIdx, userIdx);
 		if (flag) {
 			int result = ClassDAO.postApplicationClass(con, classIdx, userIdx);
 			if (result == 1) {
+				session.setAttribute("apply_check","ok");
 				out.println(
 						"<script>alert('클래스 신청이 완료되었습니다.'); location.replace(\"apply.jsp\"); </script>\" </script>");
 			} else {

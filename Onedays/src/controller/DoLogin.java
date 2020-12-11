@@ -44,7 +44,8 @@ public class DoLogin extends HttpServlet {
 
 		ResultSet rs = UserDAO.login(conn, mid);
 		HttpSession session = request.getSession();
-
+		
+		session.setAttribute("apply_check","no");
 		PrintWriter out = response.getWriter();
 
 		if (rs != null) {

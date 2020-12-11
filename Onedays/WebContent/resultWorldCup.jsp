@@ -68,7 +68,7 @@ p {
 		}
 		
 		String name = request.getParameter("name");
-		String n = name.substring(12, name.length() - 4);
+		String n = name.substring(12, (name.length() - 4));
 		System.out.println("name? " + name);
 
 		int[] catNum = { 3, 3, 9, 10, 2, 2, 8, 5, 6, 7, 4, 5, 6, 1, 1, 4 };
