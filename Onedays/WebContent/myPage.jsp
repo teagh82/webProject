@@ -1,15 +1,15 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ page import="model.*"%>
+<%@ page import="model.*"%>
 <%
-    String id = (String) session.getAttribute("mid");
+	String id = (String) session.getAttribute("mid");
 
-	ServletContext sc = getServletContext(); 
-	Connection con = (Connection)sc.getAttribute("DBconnection"); 
+ServletContext sc = getServletContext();
+Connection con = (Connection) sc.getAttribute("DBconnection");
 
-    UserDAO dao = UserDAO.getInstance();
-    UserVO vo = dao.getData(con, id);
+UserDAO dao = UserDAO.getInstance();
+UserVO vo = dao.getData(con, id);
 %>
 <!DOCTYPE html>
 <html>
@@ -20,27 +20,33 @@
 <link href="css/style_mypage.css" rel="stylesheet" type="text/css">
 
 <script>
-        function popup(){
-            var url = "notice.jsp";
-            var name = "popup test";
-            var option = "width = 500, height = 100, top = 100, left = 800, location = no"
-            window.open(url, name, option);
-        }
-        
-        function searchCheck(frm){
-            //검색
-            if(frm.keyWord.value ==""){
-                alert("검색 단어를 입력하세요.");
-                frm.keyWord.focus();
-                return;
-            }
-            frm.submit();   
-            location.href = "search.jsp";
-        }
-    </script>
+	function popup() {
+		var url = "notice.jsp";
+		var name = "popup test";
+		var option = "width = 500, height = 100, top = 100, left = 800, location = no"
+		window.open(url, name, option);
+	}
+
+	function searchCheck(frm) {
+		//검색
+		if (frm.keyWord.value == "") {
+			alert("검색 단어를 입력하세요.");
+			frm.keyWord.focus();
+			return;
+		}
+		frm.submit();
+		location.href = "search.jsp";
+	}
+</script>
 </head>
 <body>
 	<jsp:include page="header.jsp" />
+	<%
+		if (session.getAttribute("mid") == null || session.isNew()) {
+		out.println("<script>alert('로그인 후 이용해주세요.'); location.replace(\"login.jsp\"); </script>");
+		return;
+	}
+	%>
 
 	<!-- 마이페이지 메뉴  -->
 	<div class=mypage>
@@ -55,10 +61,11 @@
 	<div class="mypage_wrap">
 		<h2>개인 정보</h2>
 		<br />
-		<form method="post" action="UpdateUserInfo" onsubmit="return checkPasswd()">
+		<form method="post" action="UpdateUserInfo"
+			onsubmit="return checkPasswd()">
 			<div class=mypage_box>
 				<h5>아이디</h5>
-				<input type="text" name="mid" value="<%= vo.getId() %>" readonly />
+				<input type="text" name="mid" value="<%=vo.getId()%>" readonly />
 			</div>
 			<div class="mypage_box">
 				<h5>비밀 번호</h5>
@@ -66,15 +73,18 @@
 			</div>
 			<div class="mypage_box">
 				<h5>이름</h5>
-				<input type="text" name="userName" value="<%= vo.getName() %>" readonly />
+				<input type="text" name="userName" value="<%=vo.getName()%>"
+					readonly />
 			</div>
 			<div class="mypage_box">
 				<h5>전화 번호</h5>
-				<input type="tel" value="<%= vo.getPhoneNumber() %>" name="phone" />
+				<input type="tel" value="<%=vo.getPhoneNumber()%>" name="phone"
+					required />
 			</div>
 			<div class="mypage_box">
 				<h5>이메일</h5>
-				<input type="email" value="<%= vo.getEmail() %>" name="email" />
+				<input type="email" value="<%=vo.getEmail()%>" name="email"
+					required />
 			</div>
 			<div class="region">
 				<h5>지역</h5>
@@ -91,19 +101,19 @@
 			</div>
 			<div class=btn_box>
 				<input class=btn type="submit" value="수정하기" />
-				<input class=btn2 type="button" value="탈퇴하기" />
-				
 			</div>
 		</form>
-		
+		<form action="DeleteUserInfo" method="POST">
+			<input onsubmit="return confirm('탈퇴 하시겠습니까?');" type="submit" class=btn2 type="button" value="탈퇴하기" />
+		</form>
+
 		<script type="text/javascript">
-		function checkPasswd(){
-			if(!document.myPage.passwd.value){
-				alert("비밀번호를 입력하세요!");
-				return false;
+			function checkPasswd() {
+				if (!document.myPage.passwd.value) {
+					alert("비밀번호를 입력하세요!");
+					return false;
+				}
 			}
-		}
-		
 		</script>
 
 	</div>
@@ -113,6 +123,6 @@
 	<br>
 
 	<jsp:include page="footer.jsp" />
-	
+
 </body>
 </html>

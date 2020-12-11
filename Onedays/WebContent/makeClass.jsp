@@ -35,6 +35,12 @@
 
 <body>
 	<jsp:include page="header.jsp" />
+	<%
+		if (session.getAttribute("mid") == null || session.isNew()) {
+		out.println("<script>alert('로그인 후 이용해주세요.'); location.replace(\"login.jsp\"); </script>");
+		return;
+	}
+	%>
 
 	<!-- 마이페이지 메뉴  -->
 	<div class=mypage>
@@ -55,6 +61,16 @@
 	ArrayList<ClassVO> list = dao.getMyRegistClass(userIdx);
 	%>
 
+	<%
+     if(list.size() == 0){
+    	 %>
+	<div style="clear: both; margin: 150px;"></div>
+	<h2 style="text-align: center;">내가 만든 클래스가 없습니다.</h2>
+	<div style="clear: both; margin: 150px;"></div>
+	<%
+     }
+     else{
+     %>
 	<!--클래스 목록-->
 	<table class="pro_body">
 		<%
@@ -90,32 +106,32 @@
  %>
 						<h4 style="padding: 0 5px 5px;">서울</h4> <%
  	break;
- case 2:
+ 	case 2:
  %>
 						<h4 style="padding: 0 5px 5px;">경기</h4> <%
  	break;
- case 3:
+ 	case 3:
  %>
 						<h4 style="padding: 0 5px 5px;">충청도</h4> <%
  	break;
- case 4:
+ 	case 4:
  %>
 						<h4 style="padding: 0 5px 5px;">전라도</h4> <%
  	break;
- case 5:
+ 	case 5:
  %>
 						<h4 style="padding: 0 5px 5px;">경상도</h4> <%
  	break;
- }
+ 	}
  %>
 
 				</a>
-				<form method="post" action=""
-					onsubmit="return confirm('해당 클래스를 삭제 하시겠습니까?');">
-					<input class=Cbtn type="hidden" name="class_idx" id="class_idx"
-						value="<%=vo.getClassIdx()%>" /> <input type="submit"
-						value="삭제하기" style="padding: 5px;">
-				</form></li>
+					<form method="post" action="DeleteClass"
+						onsubmit="return confirm('해당 클래스를 삭제 하시겠습니까?');">
+						<input class=Cbtn type="hidden" name="class_idx" id="class_idx"
+							value="<%=vo.getClassIdx()%>" /> <input type="submit"
+							value="삭제하기" style="padding: 5px;">
+					</form></li>
 			</td>
 			<%
 				}
@@ -125,13 +141,17 @@
 			}
 		%>
 	</table>
-
+<%} %>
 
 	<div class="make_class">
 		<a href="makeCPage.jsp">새로운 클래스를 만들러 가기</a>
 	</div>
 
-
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<div style="clear: both;"></div>
 	<br>
 	<br>
