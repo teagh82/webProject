@@ -61,6 +61,16 @@
 	ArrayList<ClassVO> list = dao.getMyRegistClass(userIdx);
 	%>
 
+	<%
+     if(list.size() == 0){
+    	 %>
+	<div style="clear: both; margin: 150px;"></div>
+	<h2 style="text-align: center;">내가 만든 클래스가 없습니다.</h2>
+	<div style="clear: both; margin: 150px;"></div>
+	<%
+     }
+     else{
+     %>
 	<!--클래스 목록-->
 	<table class="pro_body">
 		<%
@@ -131,13 +141,17 @@
 			}
 		%>
 	</table>
-
+<%} %>
 
 	<div class="make_class">
 		<a href="makeCPage.jsp">새로운 클래스를 만들러 가기</a>
 	</div>
 
-
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
 	<div style="clear: both;"></div>
 	<br>
 	<br>

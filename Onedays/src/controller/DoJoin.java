@@ -58,7 +58,7 @@ public class DoJoin extends HttpServlet {
 			if (!rs.next()) { // 처음 가입하는 회원일 시 회원가입 실행
 				int result = UserDAO.join(conn, id, password, email, name, phone, region);
 				if (result == 1) {
-					response.sendRedirect("JoinSucess.jsp");
+					response.sendRedirect("JoinSuccess.jsp");
 				} else {
 					out.println("<script>alert('회원가입에 실패했습니다.'); history.back(); </script>");
 				}

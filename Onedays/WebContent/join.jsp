@@ -69,7 +69,7 @@
 				<br> <br>
 				<div class=join_box>
 					<h5>이메일</h5>
-					<input type="text" name="email" />
+					<input type="email" name="email" />
 				</div>
 				<br> <br>
 				<h5 style="color: #c0c0c0">지역</h5>
@@ -86,6 +86,11 @@
 		</div>
 	</div>
 
+<br>
+	<br>
+	<br>
+	<br>
+	<br>
 <div style="clear: both;"></div>
 	<br>
 	<br>
