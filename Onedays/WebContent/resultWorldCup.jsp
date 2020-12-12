@@ -109,5 +109,12 @@ p {
 		</div>
 	</div>
 
+	<div style="clear: both;"></div>
+	<br>
+	<br>
+	<br>
+	<link href="css/mainstyles.css" rel="stylesheet" type="text/css">
+	<jsp:include page="footer.jsp" />
+
 </body>
 </html>
