@@ -103,8 +103,8 @@ UserVO vo = dao.getData(con, id);
 				<input class=btn type="submit" value="수정하기" />
 			</div>
 		</form>
-		<form action="DeleteUserInfo" method="POST">
-			<input onsubmit="return confirm('탈퇴 하시겠습니까?');" type="submit" class=btn2 type="button" value="탈퇴하기" />
+		<form action="DeleteUserInfo" method="POST" onsubmit="return confirm('탈퇴 하시겠습니까?');">
+			<input type="submit" class=btn2 type="button" value="탈퇴하기" />
 		</form>
 
 		<script type="text/javascript">
