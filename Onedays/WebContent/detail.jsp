@@ -91,13 +91,22 @@
 		<div class="detail_menu">
 			<a href="#review">한줄평</a>
 		</div>
-		<div class="detail_menu">
-			<a href="#inquiry">문의하기</a>
-		</div>
-		<div class="detail_img">
-			<img
-				src="${pageContext.request.contextPath}/uploadImg/<%=classVO.getImage() %>"
-				width="300" height="300">
+
+		<div class="detail_img" style="padding-left:250px; padding-top:80px;">
+				
+			<%String imgsrc = classVO.getImage();
+				if(imgsrc.length()>15){
+					if(imgsrc.substring(0,15).equals("https://onedays")){ %>
+                 			<img src="<%=classVO.getImage() %>" width="500" height="500">
+                        <%
+                        }
+					else {%>
+         				<img src="${pageContext.request.contextPath}/uploadImg/<%=classVO.getImage() %>" width="500" height="500">
+                   <%}
+				}
+                else {%>
+      				<img src="${pageContext.request.contextPath}/uploadImg/<%=classVO.getImage() %>" width="500" height="500">
+                <%} %>
 		</div>
 
 		<div class="detail">

@@ -80,9 +80,19 @@
 				<td style="padding: 10px;">
 					<li class="list" style="width:350px;"><a
 						href="detail.jsp?classIdx=<%=vo.getClassIdx()%>" class="lista">
-							<img
-							src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>"
-							alt="" class="img">
+							<%String imgsrc = vo.getImage();
+							if(imgsrc.length()>15){
+								if(imgsrc.substring(0,15).equals("https://onedays")){ %>
+		                  			<img src="<%=vo.getImage() %>" alt="" class="img">
+		                         <%
+		                         }
+								else {%>
+		          				<img src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>" alt="" class="img">
+		                    <%}
+							}
+		                    else {%>
+		          				<img src="${pageContext.request.contextPath}/uploadImg/<%=vo.getImage() %>" alt="" class="img">
+		                    <%} %>
 							<h3><%=vo.getName() %>
 								클래스
 							</h3>
@@ -128,7 +138,19 @@
 		<%
     	}
      	%>
+     	
+     	<br>
+	
+	<br>
 		<div style="clear: both;"></div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br><br>
+	<br>
 	<br>
 	<br>
 	<br>

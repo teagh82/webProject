@@ -155,5 +155,11 @@ img {
 		<a href="index.jsp"
 			style="text-dexoration: none; color: #8EBCBB; font-size: 25px;">그만하기</a>
 	</div>
+	
+	<div style="clear: both;"></div>
+	<br>
+	<br>
+	<br>
+	<jsp:include page="footer.jsp" />
 </body>
 </html>
