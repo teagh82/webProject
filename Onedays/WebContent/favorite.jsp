@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"
-	import="model.ClassVO, java.util.ArrayList, javax.servlet.http.HttpSession"%>
+	import="model.ClassVO, java.util.*, javax.servlet.http.HttpSession"%>
 <!DOCTYPE html>
 <html>
 <head>

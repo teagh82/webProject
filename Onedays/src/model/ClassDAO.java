@@ -67,7 +67,7 @@ public class ClassDAO {
 		}
 		return 0;
 	}
-	
+
 	public static int deleteClass(Connection con, int class_idx) {
 		String query = String.format("DELETE FROM class WHERE class_idx = %d", class_idx);
 		try {
@@ -133,7 +133,7 @@ public class ClassDAO {
 		String query2 = "SELECT * FROM class where is_closed = 0 ORDER BY RAND() LIMIT 4 ";
 
 		ResultSet result = null;
-		
+
 		try {// 실행
 			st = con.createStatement();
 
@@ -141,11 +141,12 @@ public class ClassDAO {
 				result = st.executeQuery(query2);
 			} else { // 로그인 한 상태
 				rs = st.executeQuery(query1);
-				if(rs.next()) {
+				if (rs.next()) {
 					int idx = rs.getInt(1);
-					
+
 					String query3 = String.format(
-							"SELECT * FROM class where is_closed = 0 AND category_idx = %d ORDER BY RAND() LIMIT 4 ", idx);
+							"SELECT * FROM class where is_closed = 0 AND category_idx = %d ORDER BY RAND() LIMIT 4 ",
+							idx);
 					try {
 						Statement st1 = con.createStatement();
 						result = st1.executeQuery(query3);
@@ -335,7 +336,8 @@ public class ClassDAO {
 	public ArrayList<ClassVO> getCategorylist(int category_idx) {
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-		String query = "SELECT * FROM class WHERE category_idx = " + category_idx + " AND is_closed = 0 ORDER BY class_idx DESC";
+		String query = "SELECT * FROM class WHERE category_idx = " + category_idx
+				+ " AND is_closed = 0 ORDER BY class_idx DESC";
 
 		try {// 실행
 			st = con.createStatement();
