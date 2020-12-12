@@ -86,7 +86,7 @@ public class ClassDAO {
 		}
 		return 0;
 	}
-	
+  
 	public static ClassVO getClassByIdx(Connection con, int idx) {
 		String query = "SELECT * FROM class WHERE class_idx = " + idx;
 
@@ -129,22 +129,20 @@ public class ClassDAO {
 	public ArrayList<ClassVO> getRecomendlist(int user_idx) {
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-		System.out.println("us idx -> " + user_idx);
 		String query1 = String.format("SELECT like_category FROM user WHERE user_idx = %d", user_idx);
 		String query2 = "SELECT * FROM class where is_closed = 0 ORDER BY RAND() LIMIT 4 ";
 
 		ResultSet result = null;
-		
+
 		try {// 실행
 			st = con.createStatement();
 
-			if (user_idx == -1) {
+			if (user_idx == -1) { // 로그인 안한 상태
 				result = st.executeQuery(query2);
-			} else {
+			} else { // 로그인 한 상태
 				rs = st.executeQuery(query1);
-				if(rs.next()) {
+				if (rs.next()) {
 					int idx = rs.getInt(1);
-					System.out.println("ct idx -> " + idx);
 					
 					if(idx > 0) {
 						String query3 = String.format(
@@ -158,6 +156,7 @@ public class ClassDAO {
 						
 					}
 					else result = st.executeQuery(query2);
+
 				}
 			}
 
@@ -340,7 +339,8 @@ public class ClassDAO {
 	public ArrayList<ClassVO> getCategorylist(int category_idx) {
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-		String query = "SELECT * FROM class WHERE category_idx = " + category_idx + " AND is_closed = 0";
+		String query = "SELECT * FROM class WHERE category_idx = " + category_idx
+				+ " AND is_closed = 0 ORDER BY class_idx DESC";
 
 		try {// 실행
 			st = con.createStatement();

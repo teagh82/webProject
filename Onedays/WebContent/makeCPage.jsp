@@ -32,6 +32,12 @@
 
 <body>
     <jsp:include page="header.jsp" />
+    <%
+		if (session.getAttribute("mid") == null || session.isNew()) {
+		out.println("<script>alert('로그인 후 이용해주세요.'); location.replace(\"login.jsp\"); </script>");
+		return;
+	}
+	%>
 
     <!-- 마이페이지 메뉴  -->
     <div class=mypage>

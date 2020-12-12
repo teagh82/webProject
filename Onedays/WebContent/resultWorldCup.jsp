@@ -73,13 +73,10 @@ p {
 
 		int[] catNum = { 3, 3, 9, 10, 2, 2, 8, 5, 6, 7, 4, 5, 6, 1, 1, 4 };
 		int cat_n = catNum[Integer.parseInt(n) - 1];
-
-		System.out.println(session.getAttribute("user_idx"));
 		int user_idx = Integer.parseInt(session.getAttribute("user_idx").toString());
 
 		int i = dao.updateUserLikeCategory(con, cat_n, user_idx);
 
-		System.out.println(cat_n);
 		%>
 
 		<%
