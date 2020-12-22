@@ -6,7 +6,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>inst</title>
+    <title>music</title>
     <link href="css/mainstyles.css" rel="stylesheet" type="text/css">
     <link href="css/style_login.css" rel="stylesheet" type="text/css">
     <link href="css/style_cat.css" rel="stylesheet" type="text/css">
@@ -36,7 +36,7 @@
 
     <jsp:include page="header.jsp" />
 
-    <h2>악기 클래스</h2>
+    <h2>음악 클래스</h2>
 	<h3 class="cr">지역</h3>
 	<form action="instCatR.jsp">
 

@@ -44,6 +44,8 @@ public class UpdateUserInfo extends HttpServlet {
 		String phone = request.getParameter("phone");
 		String region = request.getParameter("region");
 
+		session.setAttribute("ur",request.getParameter("region"));
+		
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 		

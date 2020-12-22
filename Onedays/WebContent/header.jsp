@@ -53,7 +53,7 @@
         <ul class="item">
             <li><a href="craftsCat.jsp">공예</a></li>
             <li><a href="cookCat.jsp">요리</a></li>
-            <li><a href="instCat.jsp">악기</a></li>
+            <li><a href="instCat.jsp">음악</a></li>
             <li><a href="itCat.jsp">IT</a></li>
             <li><a href="activityCat.jsp">액티비티</a></li>
             <li><a href="artCat.jsp">미술</a></li>

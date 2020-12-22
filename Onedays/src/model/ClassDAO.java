@@ -403,7 +403,7 @@ public class ClassDAO {
 	// 카테고리명 검색
 	public static String getCategoryByIdx(Connection con, int categoryIdx) {
 
-		String query = "SELECT name FROM category WHERE category_idx=" + categoryIdx + " AND is_closed = 0";
+		String query = "SELECT name FROM category WHERE category_idx=" + categoryIdx;
 
 		try {
 			Statement st = con.createStatement();
@@ -426,7 +426,7 @@ public class ClassDAO {
 	// 지역명 검색
 	public static String getRegionByIdx(Connection con, int regionIdx) {
 
-		String query = "SELECT name FROM class_region WHERE class_region_idx=" + regionIdx + " AND is_closed = 0";
+		String query = "SELECT name FROM class_region WHERE class_region_idx=" + regionIdx;
 
 		try {
 			Statement st = con.createStatement();
