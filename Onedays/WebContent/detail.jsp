@@ -9,6 +9,8 @@
 <link href="css/mainstyles.css" rel="stylesheet" type="text/css">
 <link href="css/style_detail.css" rel="stylesheet" type="text/css">
 
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <script>
    var cnt = 1;
    
@@ -194,7 +196,7 @@
 		<h2>
 			지역 :
 			<%=ClassDAO.getRegionByIdx(con, classVO.getClassRegionIdx())%>
-			/ 클래스 카테고리 :
+			/ 카테고리 :
 			<%=ClassDAO.getCategoryByIdx(con, classVO.getCategoryIdx())%></h2>
 		<div class="classname">
 			<h1><%=classVO.getName()%></h1>

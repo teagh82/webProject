@@ -65,9 +65,14 @@
                <option value="">카테고리 선택</option>
                <option value="1">공예</option>
                <option value="2">요리</option>
-               <option value="3">악기</option>
+               <option value="3">음악</option>
                <option value="4">IT</option>
                <option value="5">액티비티</option>
+               <option value="6">미술</option>
+               <option value="7">디자인</option>
+               <option value="8">뷰티</option>
+               <option value="9">반려동물</option>
+               <option value="10">플라워</option>
             </select>
             </div>
             <div class="mypage_box">
@@ -102,12 +107,12 @@
                 <input type="text" name="content" />
             </div>
             <div class=mypage_box>
-                <h5>작가 소개</h5>
+                <h5>선생님 소개</h5>
                 <input type="text" name="teacherInfo" />
             </div>
             <div class=mypage_box>
                 <h5>가격</h5>
-                <input type="text" name="price" />
+                <input type="text" name="price" placeholder="숫자만 입력해주세요."/>
             </div>
             <div class=mypage_box>
                 <h5>클래스 사진</h5>
