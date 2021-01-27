@@ -277,13 +277,29 @@ public class ClassDAO {
 	public ArrayList<ClassVO> getLikelist(Object uid) {
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-		String query = "SELECT * from class INNER JOIN `like` on class.class_idx = like.class_idx where "
-				+ "is_closed = 0 AND" + " `like`.user_idx = " + uid + " ORDER BY RAND() LIMIT 4";
+//		String query = "SELECT * from class INNER JOIN `like` on class.class_idx = like.class_idx where "
+//			+ "is_closed = 0 AND" + " `like`.user_idx = " + uid + " ORDER BY RAND() LIMIT 4";
 
+		String query = "SELECT category_idx from class INNER JOIN `like` on class.class_idx = like.class_idx where"
+				+ " is_closed = 0 AND `like`.user_idx = " + uid + " ORDER BY RAND() LIMIT 4";
+		
+		ArrayList<Integer> li = new ArrayList<Integer>();
 		try {// 실행
 			st = con.createStatement();
-			rs = st.executeQuery(query);
-
+			//rs = st.executeQuery(query);
+			
+			ResultSet rs1 = st.executeQuery(query);
+			
+			while (rs1.next()) {
+				int cat = rs1.getInt(1);
+				li.add(cat);
+			}		
+		
+			if(li.size()>0) {
+				String query2 = "SELECT * from class where is_closed = 0 AND category_idx = "
+					+ li.get(0).toString() + " ORDER BY RAND() LIMIT 4";
+				rs = st.executeQuery(query2);
+			}
 			while (rs.next()) {
 				ClassVO vo = new ClassVO();
 
@@ -299,7 +315,7 @@ public class ClassDAO {
 				list.add(vo);
 			}
 		} catch (Exception e) {
-			System.out.println(e + "=> getEndlist fail");
+			System.out.println(e + "=> getLikeRecomendlist fail");
 		}
 		return list;
 	}// getLikelist
@@ -308,13 +324,31 @@ public class ClassDAO {
 	public ArrayList<ClassVO> getApplylist(Object uid) {
 		ArrayList<ClassVO> list = new ArrayList<ClassVO>();
 
-		String query = "SELECT * from class INNER JOIN application on class.class_idx = application.class_idx where "
-				+ "is_closed = 0 AND " + "application.user_idx = " + uid + " ORDER BY RAND() LIMIT 4";
+		//String query = "SELECT * from class INNER JOIN application on class.class_idx = application.class_idx where "
+		//		+ "is_closed = 0 AND " + "application.user_idx = " + uid + " ORDER BY RAND() LIMIT 4";
 
+		String query = "SELECT category_idx from class INNER JOIN application on class.class_idx = application.class_idx where "
+				+ "is_closed = 0 AND " + "application.user_idx = " + uid + " ORDER BY RAND() LIMIT 4";
+				
+	    ArrayList<Integer> li = new ArrayList<Integer>();
+		
 		try {// 실행
 			st = con.createStatement();
-			rs = st.executeQuery(query);
+			//rs = st.executeQuery(query);
 
+			ResultSet rs1 = st.executeQuery(query);
+			
+			while (rs1.next()) {
+				int cat = rs1.getInt(1);
+				li.add(cat);
+			}		
+		
+			if(li.size()>0) {
+				String query2 = "SELECT * from class where is_closed = 0 AND category_idx = "
+					+ li.get(0).toString() + " ORDER BY RAND() LIMIT 4";
+				rs = st.executeQuery(query2);
+			}
+			
 			while (rs.next()) {
 				ClassVO vo = new ClassVO();
 
@@ -330,7 +364,7 @@ public class ClassDAO {
 				list.add(vo);
 			}
 		} catch (Exception e) {
-			System.out.println(e + "=> getEndlist fail");
+			System.out.println(e + "=> getApplylist fail");
 		}
 		return list;
 	}// getApplylist
@@ -361,7 +395,7 @@ public class ClassDAO {
 				list.add(vo);
 			}
 		} catch (Exception e) {
-			System.out.println(e + "=> getEndlist fail");
+			System.out.println(e + "=> getCategorylist fail");
 		}
 
 		return list;
@@ -395,7 +429,7 @@ public class ClassDAO {
 				list.add(vo);
 			}
 		} catch (Exception e) {
-			System.out.println(e + "=> getEndlist fail");
+			System.out.println(e + "=> getCategorylist fail");
 		}
 		return list;
 	}// getCategorylist
